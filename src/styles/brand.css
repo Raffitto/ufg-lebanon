@@ -180,6 +180,12 @@ body {
   }
 }
 
+.ufg-media-fallback {
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 229, 0, 0.14), transparent 40%),
+    linear-gradient(145deg, #1a1a1a 0%, #0a0a0a 55%, #050505 100%);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

@@ -4,6 +4,7 @@ import { applyBrandTheme } from './utils/theme'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import OfferSection from './components/OfferSection'
+import Branches from './components/Branches'
 import Services from './components/Services'
 import Memberships from './components/Memberships'
 import Transformations from './components/Transformations'
@@ -31,6 +32,7 @@ export default function App() {
       <main className="page-main w-full min-w-0">
         <Hero />
         <OfferSection />
+        <Branches />
         <Services />
         <Memberships />
         <Transformations />

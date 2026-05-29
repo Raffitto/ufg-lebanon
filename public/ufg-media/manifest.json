@@ -1,0 +1,689 @@
+{
+  "generatedAt": "2026-05-29T01:08:09.777Z",
+  "sourceRoot": "/Users/raffiazarian/Desktop/UFG PICS",
+  "branchSourceFolders": {
+    "mtayleb": "ufg1 pics",
+    "awkar": "ufg2 pics"
+  },
+  "branches": {
+    "mtayleb": {
+      "sourceFolder": "ufg1 pics",
+      "images": {
+        "img-7758": {
+          "thumb": {
+            "webp": "/ufg-media/mtayleb/images/img-7758/thumb.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7758/thumb.avif",
+            "width": 320,
+            "height": 694
+          },
+          "mobile": {
+            "webp": "/ufg-media/mtayleb/images/img-7758/mobile.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7758/mobile.avif",
+            "width": 640,
+            "height": 1387
+          },
+          "tablet": {
+            "webp": "/ufg-media/mtayleb/images/img-7758/tablet.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7758/tablet.avif",
+            "width": 1024,
+            "height": 2219
+          },
+          "desktop": {
+            "webp": "/ufg-media/mtayleb/images/img-7758/desktop.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7758/desktop.avif",
+            "width": 1600,
+            "height": 3468
+          },
+          "blur": "/ufg-media/mtayleb/images/img-7758/blur.webp",
+          "aspect": 0.4613733905579399,
+          "original": "IMG_7758.JPG"
+        },
+        "img-7759": {
+          "thumb": {
+            "webp": "/ufg-media/mtayleb/images/img-7759/thumb.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7759/thumb.avif",
+            "width": 320,
+            "height": 694
+          },
+          "mobile": {
+            "webp": "/ufg-media/mtayleb/images/img-7759/mobile.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7759/mobile.avif",
+            "width": 640,
+            "height": 1387
+          },
+          "tablet": {
+            "webp": "/ufg-media/mtayleb/images/img-7759/tablet.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7759/tablet.avif",
+            "width": 1024,
+            "height": 2219
+          },
+          "desktop": {
+            "webp": "/ufg-media/mtayleb/images/img-7759/desktop.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7759/desktop.avif",
+            "width": 1600,
+            "height": 3468
+          },
+          "blur": "/ufg-media/mtayleb/images/img-7759/blur.webp",
+          "aspect": 0.4613733905579399,
+          "original": "IMG_7759.JPG"
+        },
+        "img-7760": {
+          "thumb": {
+            "webp": "/ufg-media/mtayleb/images/img-7760/thumb.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7760/thumb.avif",
+            "width": 320,
+            "height": 694
+          },
+          "mobile": {
+            "webp": "/ufg-media/mtayleb/images/img-7760/mobile.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7760/mobile.avif",
+            "width": 640,
+            "height": 1387
+          },
+          "tablet": {
+            "webp": "/ufg-media/mtayleb/images/img-7760/tablet.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7760/tablet.avif",
+            "width": 1024,
+            "height": 2219
+          },
+          "desktop": {
+            "webp": "/ufg-media/mtayleb/images/img-7760/desktop.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7760/desktop.avif",
+            "width": 1600,
+            "height": 3468
+          },
+          "blur": "/ufg-media/mtayleb/images/img-7760/blur.webp",
+          "aspect": 0.4613733905579399,
+          "original": "IMG_7760.JPG"
+        },
+        "img-7761": {
+          "thumb": {
+            "webp": "/ufg-media/mtayleb/images/img-7761/thumb.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7761/thumb.avif",
+            "width": 320,
+            "height": 694
+          },
+          "mobile": {
+            "webp": "/ufg-media/mtayleb/images/img-7761/mobile.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7761/mobile.avif",
+            "width": 640,
+            "height": 1387
+          },
+          "tablet": {
+            "webp": "/ufg-media/mtayleb/images/img-7761/tablet.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7761/tablet.avif",
+            "width": 1024,
+            "height": 2219
+          },
+          "desktop": {
+            "webp": "/ufg-media/mtayleb/images/img-7761/desktop.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7761/desktop.avif",
+            "width": 1600,
+            "height": 3468
+          },
+          "blur": "/ufg-media/mtayleb/images/img-7761/blur.webp",
+          "aspect": 0.4613733905579399,
+          "original": "IMG_7761.JPG"
+        },
+        "img-7762": {
+          "thumb": {
+            "webp": "/ufg-media/mtayleb/images/img-7762/thumb.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7762/thumb.avif",
+            "width": 320,
+            "height": 694
+          },
+          "mobile": {
+            "webp": "/ufg-media/mtayleb/images/img-7762/mobile.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7762/mobile.avif",
+            "width": 640,
+            "height": 1387
+          },
+          "tablet": {
+            "webp": "/ufg-media/mtayleb/images/img-7762/tablet.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7762/tablet.avif",
+            "width": 1024,
+            "height": 2219
+          },
+          "desktop": {
+            "webp": "/ufg-media/mtayleb/images/img-7762/desktop.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7762/desktop.avif",
+            "width": 1600,
+            "height": 3468
+          },
+          "blur": "/ufg-media/mtayleb/images/img-7762/blur.webp",
+          "aspect": 0.4613733905579399,
+          "original": "IMG_7762.JPG"
+        },
+        "img-7763": {
+          "thumb": {
+            "webp": "/ufg-media/mtayleb/images/img-7763/thumb.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7763/thumb.avif",
+            "width": 320,
+            "height": 694
+          },
+          "mobile": {
+            "webp": "/ufg-media/mtayleb/images/img-7763/mobile.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7763/mobile.avif",
+            "width": 640,
+            "height": 1387
+          },
+          "tablet": {
+            "webp": "/ufg-media/mtayleb/images/img-7763/tablet.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7763/tablet.avif",
+            "width": 1024,
+            "height": 2219
+          },
+          "desktop": {
+            "webp": "/ufg-media/mtayleb/images/img-7763/desktop.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7763/desktop.avif",
+            "width": 1600,
+            "height": 3468
+          },
+          "blur": "/ufg-media/mtayleb/images/img-7763/blur.webp",
+          "aspect": 0.4613733905579399,
+          "original": "IMG_7763.JPG"
+        },
+        "img-7794": {
+          "thumb": {
+            "webp": "/ufg-media/mtayleb/images/img-7794/thumb.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7794/thumb.avif",
+            "width": 320,
+            "height": 320
+          },
+          "mobile": {
+            "webp": "/ufg-media/mtayleb/images/img-7794/mobile.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7794/mobile.avif",
+            "width": 640,
+            "height": 641
+          },
+          "tablet": {
+            "webp": "/ufg-media/mtayleb/images/img-7794/tablet.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7794/tablet.avif",
+            "width": 1024,
+            "height": 1026
+          },
+          "desktop": {
+            "webp": "/ufg-media/mtayleb/images/img-7794/desktop.webp",
+            "avif": "/ufg-media/mtayleb/images/img-7794/desktop.avif",
+            "width": 1600,
+            "height": 1602
+          },
+          "blur": "/ufg-media/mtayleb/images/img-7794/blur.webp",
+          "aspect": 0.9984520123839009,
+          "original": "IMG_7794.JPG"
+        }
+      },
+      "videos": {
+        "img-7717": {
+          "poster": "/ufg-media/mtayleb/videos/img-7717/poster.webp",
+          "posterJpg": "/ufg-media/mtayleb/videos/img-7717/poster.jpg",
+          "mobile": {
+            "mp4": "/ufg-media/mtayleb/videos/img-7717/mobile.mp4",
+            "webm": "/ufg-media/mtayleb/videos/img-7717/mobile.webm"
+          },
+          "desktop": {
+            "mp4": "/ufg-media/mtayleb/videos/img-7717/desktop.mp4"
+          },
+          "width": 1280,
+          "height": 2276,
+          "original": "IMG_7717.MP4"
+        },
+        "img-7718": {
+          "poster": "/ufg-media/mtayleb/videos/img-7718/poster.webp",
+          "posterJpg": "/ufg-media/mtayleb/videos/img-7718/poster.jpg",
+          "mobile": {
+            "mp4": "/ufg-media/mtayleb/videos/img-7718/mobile.mp4",
+            "webm": "/ufg-media/mtayleb/videos/img-7718/mobile.webm"
+          },
+          "desktop": {
+            "mp4": "/ufg-media/mtayleb/videos/img-7718/desktop.mp4"
+          },
+          "width": 1280,
+          "height": 2276,
+          "original": "IMG_7718.MP4"
+        }
+      }
+    },
+    "awkar": {
+      "sourceFolder": "ufg2 pics",
+      "images": {
+        "img-7648": {
+          "thumb": {
+            "webp": "/ufg-media/awkar/images/img-7648/thumb.webp",
+            "avif": "/ufg-media/awkar/images/img-7648/thumb.avif",
+            "width": 320,
+            "height": 427
+          },
+          "mobile": {
+            "webp": "/ufg-media/awkar/images/img-7648/mobile.webp",
+            "avif": "/ufg-media/awkar/images/img-7648/mobile.avif",
+            "width": 640,
+            "height": 853
+          },
+          "tablet": {
+            "webp": "/ufg-media/awkar/images/img-7648/tablet.webp",
+            "avif": "/ufg-media/awkar/images/img-7648/tablet.avif",
+            "width": 1024,
+            "height": 1365
+          },
+          "desktop": {
+            "webp": "/ufg-media/awkar/images/img-7648/desktop.webp",
+            "avif": "/ufg-media/awkar/images/img-7648/desktop.avif",
+            "width": 1600,
+            "height": 2133
+          },
+          "blur": "/ufg-media/awkar/images/img-7648/blur.webp",
+          "aspect": 0.75,
+          "original": "IMG_7648.JPG"
+        },
+        "img-7649": {
+          "thumb": {
+            "webp": "/ufg-media/awkar/images/img-7649/thumb.webp",
+            "avif": "/ufg-media/awkar/images/img-7649/thumb.avif",
+            "width": 320,
+            "height": 427
+          },
+          "mobile": {
+            "webp": "/ufg-media/awkar/images/img-7649/mobile.webp",
+            "avif": "/ufg-media/awkar/images/img-7649/mobile.avif",
+            "width": 640,
+            "height": 853
+          },
+          "tablet": {
+            "webp": "/ufg-media/awkar/images/img-7649/tablet.webp",
+            "avif": "/ufg-media/awkar/images/img-7649/tablet.avif",
+            "width": 1024,
+            "height": 1365
+          },
+          "desktop": {
+            "webp": "/ufg-media/awkar/images/img-7649/desktop.webp",
+            "avif": "/ufg-media/awkar/images/img-7649/desktop.avif",
+            "width": 1600,
+            "height": 2133
+          },
+          "blur": "/ufg-media/awkar/images/img-7649/blur.webp",
+          "aspect": 0.75,
+          "original": "IMG_7649.JPG"
+        },
+        "img-7650": {
+          "thumb": {
+            "webp": "/ufg-media/awkar/images/img-7650/thumb.webp",
+            "avif": "/ufg-media/awkar/images/img-7650/thumb.avif",
+            "width": 320,
+            "height": 427
+          },
+          "mobile": {
+            "webp": "/ufg-media/awkar/images/img-7650/mobile.webp",
+            "avif": "/ufg-media/awkar/images/img-7650/mobile.avif",
+            "width": 640,
+            "height": 853
+          },
+          "tablet": {
+            "webp": "/ufg-media/awkar/images/img-7650/tablet.webp",
+            "avif": "/ufg-media/awkar/images/img-7650/tablet.avif",
+            "width": 1024,
+            "height": 1365
+          },
+          "desktop": {
+            "webp": "/ufg-media/awkar/images/img-7650/desktop.webp",
+            "avif": "/ufg-media/awkar/images/img-7650/desktop.avif",
+            "width": 1600,
+            "height": 2133
+          },
+          "blur": "/ufg-media/awkar/images/img-7650/blur.webp",
+          "aspect": 0.75,
+          "original": "IMG_7650.JPG"
+        },
+        "img-7655": {
+          "thumb": {
+            "webp": "/ufg-media/awkar/images/img-7655/thumb.webp",
+            "avif": "/ufg-media/awkar/images/img-7655/thumb.avif",
+            "width": 320,
+            "height": 427
+          },
+          "mobile": {
+            "webp": "/ufg-media/awkar/images/img-7655/mobile.webp",
+            "avif": "/ufg-media/awkar/images/img-7655/mobile.avif",
+            "width": 640,
+            "height": 853
+          },
+          "tablet": {
+            "webp": "/ufg-media/awkar/images/img-7655/tablet.webp",
+            "avif": "/ufg-media/awkar/images/img-7655/tablet.avif",
+            "width": 1024,
+            "height": 1365
+          },
+          "desktop": {
+            "webp": "/ufg-media/awkar/images/img-7655/desktop.webp",
+            "avif": "/ufg-media/awkar/images/img-7655/desktop.avif",
+            "width": 1600,
+            "height": 2133
+          },
+          "blur": "/ufg-media/awkar/images/img-7655/blur.webp",
+          "aspect": 0.75,
+          "original": "IMG_7655.JPG"
+        },
+        "img-7656": {
+          "thumb": {
+            "webp": "/ufg-media/awkar/images/img-7656/thumb.webp",
+            "avif": "/ufg-media/awkar/images/img-7656/thumb.avif",
+            "width": 320,
+            "height": 427
+          },
+          "mobile": {
+            "webp": "/ufg-media/awkar/images/img-7656/mobile.webp",
+            "avif": "/ufg-media/awkar/images/img-7656/mobile.avif",
+            "width": 640,
+            "height": 853
+          },
+          "tablet": {
+            "webp": "/ufg-media/awkar/images/img-7656/tablet.webp",
+            "avif": "/ufg-media/awkar/images/img-7656/tablet.avif",
+            "width": 1024,
+            "height": 1365
+          },
+          "desktop": {
+            "webp": "/ufg-media/awkar/images/img-7656/desktop.webp",
+            "avif": "/ufg-media/awkar/images/img-7656/desktop.avif",
+            "width": 1600,
+            "height": 2133
+          },
+          "blur": "/ufg-media/awkar/images/img-7656/blur.webp",
+          "aspect": 0.75,
+          "original": "IMG_7656.JPG"
+        },
+        "img-7658": {
+          "thumb": {
+            "webp": "/ufg-media/awkar/images/img-7658/thumb.webp",
+            "avif": "/ufg-media/awkar/images/img-7658/thumb.avif",
+            "width": 320,
+            "height": 427
+          },
+          "mobile": {
+            "webp": "/ufg-media/awkar/images/img-7658/mobile.webp",
+            "avif": "/ufg-media/awkar/images/img-7658/mobile.avif",
+            "width": 640,
+            "height": 853
+          },
+          "tablet": {
+            "webp": "/ufg-media/awkar/images/img-7658/tablet.webp",
+            "avif": "/ufg-media/awkar/images/img-7658/tablet.avif",
+            "width": 1024,
+            "height": 1365
+          },
+          "desktop": {
+            "webp": "/ufg-media/awkar/images/img-7658/desktop.webp",
+            "avif": "/ufg-media/awkar/images/img-7658/desktop.avif",
+            "width": 1600,
+            "height": 2133
+          },
+          "blur": "/ufg-media/awkar/images/img-7658/blur.webp",
+          "aspect": 0.75,
+          "original": "IMG_7658.JPG"
+        },
+        "img-7659": {
+          "thumb": {
+            "webp": "/ufg-media/awkar/images/img-7659/thumb.webp",
+            "avif": "/ufg-media/awkar/images/img-7659/thumb.avif",
+            "width": 320,
+            "height": 427
+          },
+          "mobile": {
+            "webp": "/ufg-media/awkar/images/img-7659/mobile.webp",
+            "avif": "/ufg-media/awkar/images/img-7659/mobile.avif",
+            "width": 640,
+            "height": 853
+          },
+          "tablet": {
+            "webp": "/ufg-media/awkar/images/img-7659/tablet.webp",
+            "avif": "/ufg-media/awkar/images/img-7659/tablet.avif",
+            "width": 1024,
+            "height": 1365
+          },
+          "desktop": {
+            "webp": "/ufg-media/awkar/images/img-7659/desktop.webp",
+            "avif": "/ufg-media/awkar/images/img-7659/desktop.avif",
+            "width": 1600,
+            "height": 2133
+          },
+          "blur": "/ufg-media/awkar/images/img-7659/blur.webp",
+          "aspect": 0.75,
+          "original": "IMG_7659.JPG"
+        },
+        "img-7660": {
+          "thumb": {
+            "webp": "/ufg-media/awkar/images/img-7660/thumb.webp",
+            "avif": "/ufg-media/awkar/images/img-7660/thumb.avif",
+            "width": 320,
+            "height": 427
+          },
+          "mobile": {
+            "webp": "/ufg-media/awkar/images/img-7660/mobile.webp",
+            "avif": "/ufg-media/awkar/images/img-7660/mobile.avif",
+            "width": 640,
+            "height": 853
+          },
+          "tablet": {
+            "webp": "/ufg-media/awkar/images/img-7660/tablet.webp",
+            "avif": "/ufg-media/awkar/images/img-7660/tablet.avif",
+            "width": 1024,
+            "height": 1365
+          },
+          "desktop": {
+            "webp": "/ufg-media/awkar/images/img-7660/desktop.webp",
+            "avif": "/ufg-media/awkar/images/img-7660/desktop.avif",
+            "width": 1600,
+            "height": 2133
+          },
+          "blur": "/ufg-media/awkar/images/img-7660/blur.webp",
+          "aspect": 0.75,
+          "original": "IMG_7660.JPG"
+        },
+        "img-7661": {
+          "thumb": {
+            "webp": "/ufg-media/awkar/images/img-7661/thumb.webp",
+            "avif": "/ufg-media/awkar/images/img-7661/thumb.avif",
+            "width": 320,
+            "height": 427
+          },
+          "mobile": {
+            "webp": "/ufg-media/awkar/images/img-7661/mobile.webp",
+            "avif": "/ufg-media/awkar/images/img-7661/mobile.avif",
+            "width": 640,
+            "height": 853
+          },
+          "tablet": {
+            "webp": "/ufg-media/awkar/images/img-7661/tablet.webp",
+            "avif": "/ufg-media/awkar/images/img-7661/tablet.avif",
+            "width": 1024,
+            "height": 1365
+          },
+          "desktop": {
+            "webp": "/ufg-media/awkar/images/img-7661/desktop.webp",
+            "avif": "/ufg-media/awkar/images/img-7661/desktop.avif",
+            "width": 1600,
+            "height": 2133
+          },
+          "blur": "/ufg-media/awkar/images/img-7661/blur.webp",
+          "aspect": 0.75,
+          "original": "IMG_7661.JPG"
+        },
+        "img-7665": {
+          "thumb": {
+            "webp": "/ufg-media/awkar/images/img-7665/thumb.webp",
+            "avif": "/ufg-media/awkar/images/img-7665/thumb.avif",
+            "width": 320,
+            "height": 240
+          },
+          "mobile": {
+            "webp": "/ufg-media/awkar/images/img-7665/mobile.webp",
+            "avif": "/ufg-media/awkar/images/img-7665/mobile.avif",
+            "width": 640,
+            "height": 480
+          },
+          "tablet": {
+            "webp": "/ufg-media/awkar/images/img-7665/tablet.webp",
+            "avif": "/ufg-media/awkar/images/img-7665/tablet.avif",
+            "width": 1024,
+            "height": 768
+          },
+          "desktop": {
+            "webp": "/ufg-media/awkar/images/img-7665/desktop.webp",
+            "avif": "/ufg-media/awkar/images/img-7665/desktop.avif",
+            "width": 1600,
+            "height": 1200
+          },
+          "blur": "/ufg-media/awkar/images/img-7665/blur.webp",
+          "aspect": 1.3333333333333333,
+          "original": "IMG_7665.JPG"
+        },
+        "img-7670": {
+          "thumb": {
+            "webp": "/ufg-media/awkar/images/img-7670/thumb.webp",
+            "avif": "/ufg-media/awkar/images/img-7670/thumb.avif",
+            "width": 320,
+            "height": 694
+          },
+          "mobile": {
+            "webp": "/ufg-media/awkar/images/img-7670/mobile.webp",
+            "avif": "/ufg-media/awkar/images/img-7670/mobile.avif",
+            "width": 640,
+            "height": 1387
+          },
+          "tablet": {
+            "webp": "/ufg-media/awkar/images/img-7670/tablet.webp",
+            "avif": "/ufg-media/awkar/images/img-7670/tablet.avif",
+            "width": 1024,
+            "height": 2219
+          },
+          "desktop": {
+            "webp": "/ufg-media/awkar/images/img-7670/desktop.webp",
+            "avif": "/ufg-media/awkar/images/img-7670/desktop.avif",
+            "width": 1600,
+            "height": 3468
+          },
+          "blur": "/ufg-media/awkar/images/img-7670/blur.webp",
+          "aspect": 0.4613733905579399,
+          "original": "IMG_7670.JPG"
+        },
+        "img-7671": {
+          "thumb": {
+            "webp": "/ufg-media/awkar/images/img-7671/thumb.webp",
+            "avif": "/ufg-media/awkar/images/img-7671/thumb.avif",
+            "width": 320,
+            "height": 694
+          },
+          "mobile": {
+            "webp": "/ufg-media/awkar/images/img-7671/mobile.webp",
+            "avif": "/ufg-media/awkar/images/img-7671/mobile.avif",
+            "width": 640,
+            "height": 1387
+          },
+          "tablet": {
+            "webp": "/ufg-media/awkar/images/img-7671/tablet.webp",
+            "avif": "/ufg-media/awkar/images/img-7671/tablet.avif",
+            "width": 1024,
+            "height": 2219
+          },
+          "desktop": {
+            "webp": "/ufg-media/awkar/images/img-7671/desktop.webp",
+            "avif": "/ufg-media/awkar/images/img-7671/desktop.avif",
+            "width": 1600,
+            "height": 3468
+          },
+          "blur": "/ufg-media/awkar/images/img-7671/blur.webp",
+          "aspect": 0.4613733905579399,
+          "original": "IMG_7671.JPG"
+        },
+        "img-7756": {
+          "thumb": {
+            "webp": "/ufg-media/awkar/images/img-7756/thumb.webp",
+            "avif": "/ufg-media/awkar/images/img-7756/thumb.avif",
+            "width": 320,
+            "height": 694
+          },
+          "mobile": {
+            "webp": "/ufg-media/awkar/images/img-7756/mobile.webp",
+            "avif": "/ufg-media/awkar/images/img-7756/mobile.avif",
+            "width": 640,
+            "height": 1387
+          },
+          "tablet": {
+            "webp": "/ufg-media/awkar/images/img-7756/tablet.webp",
+            "avif": "/ufg-media/awkar/images/img-7756/tablet.avif",
+            "width": 1024,
+            "height": 2219
+          },
+          "desktop": {
+            "webp": "/ufg-media/awkar/images/img-7756/desktop.webp",
+            "avif": "/ufg-media/awkar/images/img-7756/desktop.avif",
+            "width": 1600,
+            "height": 3468
+          },
+          "blur": "/ufg-media/awkar/images/img-7756/blur.webp",
+          "aspect": 0.4613733905579399,
+          "original": "IMG_7756.JPG"
+        },
+        "img-7793": {
+          "thumb": {
+            "webp": "/ufg-media/awkar/images/img-7793/thumb.webp",
+            "avif": "/ufg-media/awkar/images/img-7793/thumb.avif",
+            "width": 320,
+            "height": 322
+          },
+          "mobile": {
+            "webp": "/ufg-media/awkar/images/img-7793/mobile.webp",
+            "avif": "/ufg-media/awkar/images/img-7793/mobile.avif",
+            "width": 640,
+            "height": 643
+          },
+          "tablet": {
+            "webp": "/ufg-media/awkar/images/img-7793/tablet.webp",
+            "avif": "/ufg-media/awkar/images/img-7793/tablet.avif",
+            "width": 1024,
+            "height": 1030
+          },
+          "desktop": {
+            "webp": "/ufg-media/awkar/images/img-7793/desktop.webp",
+            "avif": "/ufg-media/awkar/images/img-7793/desktop.avif",
+            "width": 1600,
+            "height": 1609
+          },
+          "blur": "/ufg-media/awkar/images/img-7793/blur.webp",
+          "aspect": 0.9946029298380878,
+          "original": "IMG_7793.JPG"
+        }
+      },
+      "videos": {
+        "img-7651": {
+          "poster": "/ufg-media/awkar/videos/img-7651/poster.webp",
+          "posterJpg": "/ufg-media/awkar/videos/img-7651/poster.jpg",
+          "mobile": {
+            "mp4": "/ufg-media/awkar/videos/img-7651/mobile.mp4",
+            "webm": "/ufg-media/awkar/videos/img-7651/mobile.webm"
+          },
+          "desktop": {
+            "mp4": "/ufg-media/awkar/videos/img-7651/desktop.mp4"
+          },
+          "width": 1280,
+          "height": 2276,
+          "original": "IMG_7651.MP4"
+        },
+        "img-7652": {
+          "poster": "/ufg-media/awkar/videos/img-7652/poster.webp",
+          "posterJpg": "/ufg-media/awkar/videos/img-7652/poster.jpg",
+          "mobile": {
+            "mp4": "/ufg-media/awkar/videos/img-7652/mobile.mp4",
+            "webm": "/ufg-media/awkar/videos/img-7652/mobile.webm"
+          },
+          "desktop": {
+            "mp4": "/ufg-media/awkar/videos/img-7652/desktop.mp4"
+          },
+          "width": 1280,
+          "height": 2276,
+          "original": "IMG_7652.MP4"
+        }
+      }
+    }
+  }
+}

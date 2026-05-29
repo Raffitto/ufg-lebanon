@@ -1,7 +1,9 @@
 import { Clock, MessageCircle } from 'lucide-react'
 import { activeConfig } from '../data/activeConfig'
+import { ufgMedia } from '../data/ufgMedia'
 import { whatsappHref } from '../utils/links'
 import Button from './ui/Button'
+import ResponsiveImage from './ui/ResponsiveImage'
 import SectionHeader from './ui/SectionHeader'
 import SectionReveal from './ui/SectionReveal'
 
@@ -17,9 +19,18 @@ export default function OfferSection() {
           subtitle={offer.description}
         />
 
-        <div className="relative overflow-hidden rounded-2xl border border-[var(--color-yellow)]/30 bg-gradient-to-br from-[#1a1a1a] via-[#0d0d0d] to-black p-5 sm:rounded-[var(--radius-xl)] sm:p-8 md:p-12 yellow-glow">
+        <div className="relative overflow-hidden rounded-2xl border border-[var(--color-yellow)]/30 sm:rounded-[var(--radius-xl)] yellow-glow">
+          <div className="absolute inset-0" aria-hidden="true">
+            <ResponsiveImage
+              media={ufgMedia.offerBackdrop}
+              sizesPreset="full"
+              className="h-full w-full"
+              imgClassName="h-full w-full object-cover opacity-40"
+              overlayClassName="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-black/70"
+            />
+          </div>
           <div className="absolute top-0 right-0 h-40 w-40 rounded-full bg-[var(--color-yellow)]/15 blur-3xl sm:h-56 sm:w-56" />
-          <div className="relative flex flex-col gap-6 lg:grid lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:gap-8">
+          <div className="relative flex flex-col gap-6 p-5 sm:p-8 md:p-12 lg:grid lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:gap-8">
             <div className="space-y-3 sm:space-y-5">
               <p className="font-display text-xs tracking-[0.2em] text-[var(--color-yellow)] uppercase sm:text-sm sm:tracking-[0.24em]">
                 {offer.subtitle}

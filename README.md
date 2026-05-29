@@ -1,16 +1,46 @@
-# React + Vite
+# Ultimate Fitness Gym — Lebanon
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Premium yellow/black marketing site for UFG (Mtayleb & Awkar). Built with React, Vite, and Tailwind CSS v4.
 
-Currently, two official plugins are available:
+## Development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+## Media pipeline
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Source photos/videos live outside the repo (e.g. Desktop `UFG PICS/`). **Originals are never modified.**
 
-## Expanding the ESLint configuration
+```bash
+# Default source: ../UFG PICS (sibling of this repo)
+npm run optimize-media
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Custom source path
+UFG_MEDIA_SOURCE="/path/to/UFG PICS" npm run optimize-media
+```
+
+Outputs go to `public/ufg-media/` as WebP/AVIF images (thumb, mobile, tablet, desktop), compressed MP4/WebM videos, and poster frames.
+
+### Branch ↔ folder mapping
+
+Edit **one place** in `src/data/ufgMedia.js` (`BRANCH_SOURCE_FOLDERS`) and mirror in `scripts/optimize-ufg-media.mjs`:
+
+| Branch   | Source folder | Default assumption        |
+|----------|---------------|---------------------------|
+| `mtayleb` | `ufg1 pics`   | Primary club (Cotton Mall) |
+| `awkar`   | `ufg2 pics`   | Second branch             |
+
+Swap keys if your folders are the other way around, then re-run `npm run optimize-media`.
+
+Semantic placements (hero, galleries, CTAs) are configured in `src/data/ufgMedia.js`.
+
+## Build & deploy
+
+```bash
+npm run build
+npm run preview
+```
+
+Optimized assets in `public/ufg-media/` are copied to `dist/` for Netlify/static hosting. Commit them after adding new source media and re-running the optimizer.

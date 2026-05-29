@@ -17,7 +17,7 @@ export const ufgConfig = {
   seo: {
     title: 'Ultimate Fitness Gym | Built Different',
     description:
-      'Premium strength, conditioning, and transformation training in Mtayleb, Lebanon. Join Ultimate Fitness Gym today.',
+      'Premium strength, conditioning, and transformation training at Ultimate Fitness Gym — Mtayleb & Awkar, Lebanon.',
   },
 
   phone: '+961 3 081 084',
@@ -320,6 +320,7 @@ export const ufgConfig = {
 
   nav: [
     { label: 'Offer', href: '#offer' },
+    { label: 'Branches', href: '#branches' },
     { label: 'Services', href: '#services' },
     { label: 'Memberships', href: '#memberships' },
     { label: 'Results', href: '#results' },

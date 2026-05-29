@@ -1,10 +1,17 @@
 import { Clock, MapPin, MessageCircle, Phone } from 'lucide-react'
 import { activeConfig } from '../data/activeConfig'
+import { BRANCHES, ufgMedia } from '../data/ufgMedia'
 import { phoneHref, whatsappHref } from '../utils/links'
 import Button from './ui/Button'
+import ResponsiveImage from './ui/ResponsiveImage'
 import SocialLinks from './ui/SocialLinks'
 import SectionHeader from './ui/SectionHeader'
 import SectionReveal from './ui/SectionReveal'
+
+const branchLocations = [
+  { branch: BRANCHES.mtayleb, media: ufgMedia.locationMtayleb, primary: true },
+  { branch: BRANCHES.awkar, media: ufgMedia.locationAwkar, primary: false },
+]
 
 export default function Location() {
   const { location, openingHours, opensAt, sections, copy } = activeConfig
@@ -16,9 +23,48 @@ export default function Location() {
         <SectionHeader
           eyebrow={locationSection.eyebrow}
           title={locationSection.title}
-          subtitle={location.address}
+          subtitle="Mtayleb & Awkar — train at the branch that fits your routine."
           align="left"
         />
+
+        <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
+          {branchLocations.map(({ branch, media, primary }) => (
+            <article
+              key={branch.id}
+              className="glass-card overflow-hidden rounded-2xl sm:rounded-[var(--radius-xl)]"
+            >
+              <div className="relative aspect-[16/10]">
+                <ResponsiveImage
+                  media={media}
+                  sizesPreset="section"
+                  className="absolute inset-0"
+                  overlayClassName="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"
+                />
+                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+                  <p className="font-display text-xl text-white uppercase sm:text-2xl">
+                    {branch.name}
+                    {primary ? (
+                      <span className="ml-2 text-xs tracking-wide text-[var(--color-yellow)] normal-case">
+                        · Main
+                      </span>
+                    ) : null}
+                  </p>
+                  <p className="mt-1 text-xs text-white/70 sm:text-sm">{branch.shortAddress}</p>
+                </div>
+              </div>
+              <div className="p-4 sm:p-5">
+                <Button
+                  href={`https://www.google.com/maps/search/?api=1&query=${branch.mapsQuery}`}
+                  variant="secondary"
+                  fullWidth
+                  ariaLabel={`Open ${branch.name} in Google Maps`}
+                >
+                  {copy.openMapsCta}
+                </Button>
+              </div>
+            </article>
+          ))}
+        </div>
 
         <div className="flex flex-col gap-4 lg:grid lg:grid-cols-2 lg:gap-8">
           <div className="flex flex-col gap-4 sm:gap-5">
@@ -31,6 +77,9 @@ export default function Location() {
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-[var(--color-gray)] sm:text-base">
                     {location.address}
+                  </p>
+                  <p className="mt-2 text-xs text-white/55 sm:text-sm">
+                    Also visit our {BRANCHES.awkar.name} branch — {BRANCHES.awkar.shortAddress}
                   </p>
                   <p className="mt-1 text-xs text-white/60 sm:text-sm">
                     {locationSection.opensFromLabel} {opensAt}
@@ -102,19 +151,27 @@ export default function Location() {
                 referrerPolicy="no-referrer-when-downgrade"
               />
             ) : (
-              <div className="flex aspect-[4/5] min-h-[240px] flex-col items-center justify-center gap-3 bg-gradient-to-br from-[#1a1a1a] to-[#050505] p-6 text-center sm:aspect-auto sm:min-h-[320px] sm:gap-4 sm:p-8">
-                <MapPin className="h-9 w-9 text-[var(--color-yellow)] sm:h-10 sm:w-10" aria-hidden="true" />
-                <p className="font-display text-xl text-white uppercase sm:text-2xl">
-                  {location.shortAddress}
-                </p>
-                <Button
-                  href={location.googleMapsUrl}
-                  fullWidth
-                  className="max-w-xs"
-                  ariaLabel={copy.openMapsCta}
-                >
-                  {copy.openMapsCta}
-                </Button>
+              <div className="relative min-h-[240px] sm:min-h-[320px] lg:min-h-[360px]">
+                <ResponsiveImage
+                  media={ufgMedia.locationMtayleb}
+                  sizesPreset="section"
+                  className="absolute inset-0"
+                  overlayClassName="absolute inset-0 bg-black/55"
+                />
+                <div className="relative flex h-full min-h-[240px] flex-col items-center justify-center gap-3 p-6 text-center sm:min-h-[320px] sm:gap-4 sm:p-8">
+                  <MapPin className="h-9 w-9 text-[var(--color-yellow)] sm:h-10 sm:w-10" aria-hidden="true" />
+                  <p className="font-display text-xl text-white uppercase sm:text-2xl">
+                    {location.shortAddress}
+                  </p>
+                  <Button
+                    href={location.googleMapsUrl}
+                    fullWidth
+                    className="max-w-xs"
+                    ariaLabel={copy.openMapsCta}
+                  >
+                    {copy.openMapsCta}
+                  </Button>
+                </div>
               </div>
             )}
           </div>

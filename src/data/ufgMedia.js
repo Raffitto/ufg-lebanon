@@ -1,10 +1,9 @@
 /**
- * UFG media registry — semantic roles + branch galleries.
+ * UFG media registry — semantic roles, branch galleries, video strategy.
  *
- * Branch ↔ source folder mapping (change in one place):
- *   ufg1 pics → mtayleb (primary location in site copy)
+ * Branch ↔ source folder (change in one place):
+ *   ufg1 pics → mtayleb
  *   ufg2 pics → awkar
- * Re-run `npm run optimize-media` after changing folders or adding files.
  */
 
 export const BRANCH_SOURCE_FOLDERS = {
@@ -29,17 +28,54 @@ export const BRANCHES = {
   },
 }
 
+/**
+ * Video audit — 4 clips total (2 Mtayleb, 2 Awkar).
+ * Ranked from ffprobe: duration, bitrate, file size, vertical 720×1280.
+ */
+export const VIDEO_AUDIT = {
+  'mtayleb/img-7718': {
+    branch: 'mtayleb',
+    slug: 'img-7718',
+    source: 'IMG_7718.MP4',
+    durationSec: 8.3,
+    resolution: '720×1280',
+    tier: 'hero',
+    use: 'Site hero — longest clip, strongest atmosphere and energy',
+  },
+  'mtayleb/img-7717': {
+    branch: 'mtayleb',
+    slug: 'img-7717',
+    source: 'IMG_7717.MP4',
+    durationSec: 6.87,
+    resolution: '720×1280',
+    tier: 'section',
+    use: 'Branch loop, offer backdrop, strength/lifting services, gallery',
+  },
+  'awkar/img-7651': {
+    branch: 'awkar',
+    slug: 'img-7651',
+    source: 'IMG_7651.MP4',
+    durationSec: 4.3,
+    resolution: '720×1280',
+    tier: 'section',
+    use: 'Awkar branch loop, coaching/movement services, final CTA',
+  },
+  'awkar/img-7652': {
+    branch: 'awkar',
+    slug: 'img-7652',
+    source: 'IMG_7652.MP4',
+    durationSec: 4.67,
+    resolution: '720×1280',
+    tier: 'gallery',
+    use: 'Cardio services clip, gallery tap-to-play',
+  },
+}
+
 const B = (branch, slug, size = 'desktop') =>
   `/ufg-media/${branch}/images/${slug}/${size}.webp`
 
-const V = (branch, slug, variant = 'mobile') =>
-  `/ufg-media/${branch}/videos/${slug}/${variant}.mp4`
-
-const POSTER = (branch, slug) => `/ufg-media/${branch}/videos/${slug}/poster.webp`
-
 const BLUR = (branch, slug) => `/ufg-media/${branch}/images/${slug}/blur.webp`
 
-/** Build responsive srcset from branch + image slug */
 export function imageSrcSet(branch, slug, format = 'webp') {
   const sizes = ['thumb', 'mobile', 'tablet', 'desktop']
   return sizes
@@ -63,11 +99,12 @@ export function imagePaths(branch, slug) {
 }
 
 export function videoPaths(branch, slug) {
+  const base = `/ufg-media/${branch}/videos/${slug}`
   return {
-    poster: POSTER(branch, slug),
-    mobileMp4: V(branch, slug, 'mobile'),
-    desktopMp4: V(branch, slug, 'desktop'),
-    mobileWebm: `/ufg-media/${branch}/videos/${slug}/mobile.webm`,
+    poster: `${base}/poster.webp`,
+    mobileMp4: `${base}/mobile.mp4`,
+    desktopMp4: `${base}/desktop.mp4`,
+    mobileWebm: `${base}/mobile.webm`,
   }
 }
 
@@ -95,126 +132,132 @@ function vid(branch, slug, alt, opts = {}) {
     muted: true,
     loop: opts.loop ?? true,
     ...videoPaths(branch, slug),
-    width: opts.width ?? 1280,
-    height: opts.height ?? 720,
+    width: opts.width ?? 720,
+    height: opts.height ?? 1280,
     caption: opts.caption,
+    videoTier: opts.videoTier,
   }
 }
 
-/** High-impact placements */
-export const ufgMedia = {
-  hero: {
-    type: 'image',
-    branch: 'mtayleb',
-    slug: 'img-7762',
-    alt: 'Athletes training under dramatic lighting at Ultimate Fitness Gym Mtayleb',
+/** Cinematic placement map */
+export const videoStrategy = {
+  hero: vid('mtayleb', 'img-7718', 'Training energy at Ultimate Fitness Gym Mtayleb', {
     priority: true,
-    ...imagePaths('mtayleb', 'img-7762'),
-    width: 1600,
-    height: 2000,
+    videoTier: 'hero',
+    caption: 'Built Different',
+  }),
+  heroPoster: imagePaths('mtayleb', 'img-7762'),
+
+  branchLoop: {
+    mtayleb: vid('mtayleb', 'img-7717', 'Mtayleb branch training atmosphere', {
+      videoTier: 'section',
+      caption: 'Mtayleb',
+    }),
+    awkar: vid('awkar', 'img-7651', 'Awkar branch training atmosphere', {
+      videoTier: 'section',
+      caption: 'Awkar',
+    }),
   },
 
-  heroVideo: {
-    type: 'video',
-    branch: 'mtayleb',
-    slug: 'img-7717',
-    alt: 'Training atmosphere video at Ultimate Fitness Gym Mtayleb',
-    priority: false,
-    loop: true,
-    ...videoPaths('mtayleb', 'img-7717'),
-    width: 1280,
-    height: 720,
+  offer: vid('mtayleb', 'img-7717', 'Members training during welcome offer at UFG', {
+    videoTier: 'section',
+  }),
+
+  finalCta: vid('awkar', 'img-7651', 'Group energy at Ultimate Fitness Gym Awkar', {
+    videoTier: 'section',
+  }),
+
+  services: {
+    'personal-training': vid('awkar', 'img-7651', 'Personal coaching session at UFG', {
+      caption: 'Coaching',
+      videoTier: 'section',
+    }),
+    strength: vid('mtayleb', 'img-7717', 'Heavy lifting at UFG Mtayleb', {
+      caption: 'Lifting',
+      videoTier: 'section',
+    }),
+    functional: vid('mtayleb', 'img-7718', 'Athletic movement and functional training', {
+      caption: 'Movement',
+      videoTier: 'section',
+    }),
+    cardio: vid('awkar', 'img-7652', 'Cardio and conditioning at UFG Awkar', {
+      caption: 'Cardio',
+      videoTier: 'gallery',
+    }),
+    bodybuilding: vid('mtayleb', 'img-7718', 'Hypertrophy training on machines at UFG', {
+      caption: 'Machines',
+      videoTier: 'section',
+    }),
   },
+}
 
-  offerBackdrop: img('mtayleb', 'img-7763', 'Members training at Ultimate Fitness Gym', {
-    caption: 'Club energy',
-    width: 1600,
-    height: 2000,
+export const ufgMedia = {
+  hero: videoStrategy.hero,
+  heroFallback: img('mtayleb', 'img-7762', 'Athletes training at Ultimate Fitness Gym Mtayleb', {
+    priority: true,
   }),
 
-  finalCtaBackdrop: img('awkar', 'img-7661', 'Group training session at Ultimate Fitness Gym Awkar', {
-    width: 1600,
-    height: 1200,
-  }),
+  offerBackdrop: videoStrategy.offer,
+
+  finalCtaBackdrop: videoStrategy.finalCta,
 
   branchCards: {
-    mtayleb: img('mtayleb', 'img-7794', 'Ultimate Fitness Gym Mtayleb entrance and training floor', {
-      caption: 'Mtayleb',
-      width: 1290,
-      height: 1292,
-    }),
-    awkar: img('awkar', 'img-7650', 'Ultimate Fitness Gym Awkar strength and conditioning area', {
-      caption: 'Awkar',
-      width: 1536,
-      height: 2048,
-    }),
+    mtayleb: videoStrategy.branchLoop.mtayleb,
+    awkar: videoStrategy.branchLoop.awkar,
+  },
+
+  branchCardFallback: {
+    mtayleb: img('mtayleb', 'img-7794', 'Ultimate Fitness Gym Mtayleb', { width: 1290, height: 1292 }),
+    awkar: img('awkar', 'img-7650', 'Ultimate Fitness Gym Awkar', { width: 1536, height: 2048 }),
   },
 
   servicesAmbience: [
-    img('mtayleb', 'img-7758', 'Free weights and strength zone at UFG Mtayleb', { caption: 'Strength' }),
-    img('awkar', 'img-7649', 'Cardio and conditioning floor at UFG Awkar', { caption: 'Conditioning' }),
-    img('awkar', 'img-7658', 'Functional training space at UFG Awkar', { caption: 'Functional' }),
-    img('mtayleb', 'img-7760', 'Premium gym equipment at UFG Mtayleb', { caption: 'Equipment' }),
+    img('mtayleb', 'img-7758', 'Free weights at UFG Mtayleb', { caption: 'Strength' }),
+    img('awkar', 'img-7649', 'Conditioning floor at UFG Awkar', { caption: 'Conditioning' }),
+    img('awkar', 'img-7658', 'Functional zone at UFG Awkar', { caption: 'Functional' }),
+    img('mtayleb', 'img-7760', 'Premium equipment at UFG Mtayleb', { caption: 'Equipment' }),
   ],
 
   transformations: [
-    img('awkar', 'img-7660', 'Member mid-workout at Ultimate Fitness Gym Awkar', {
-      caption: '12-Week Cut',
-      width: 1536,
-      height: 2048,
-    }),
-    img('mtayleb', 'img-7761', 'Intense training session at UFG Mtayleb', {
-      caption: 'Muscle Build',
-      width: 1290,
-      height: 2796,
-    }),
-    img('awkar', 'img-7670', 'Athletic conditioning at UFG Awkar', {
-      caption: 'Athletic Reset',
-      width: 1290,
-      height: 2796,
-    }),
+    {
+      ...vid('mtayleb', 'img-7717', 'Transformation training at UFG Mtayleb', { caption: '12-Week Cut' }),
+      featured: true,
+    },
+    img('mtayleb', 'img-7761', 'Muscle building session at UFG Mtayleb', { caption: 'Muscle Build' }),
+    img('awkar', 'img-7670', 'Athletic reset conditioning at UFG Awkar', { caption: 'Athletic Reset' }),
   ],
 
-  locationMtayleb: img('mtayleb', 'img-7759', 'Ultimate Fitness Gym Mtayleb training floor wide view', {
+  locationMtayleb: img('mtayleb', 'img-7759', 'Mtayleb training floor wide view', {
     width: 1290,
     height: 2796,
   }),
 
-  locationAwkar: img('awkar', 'img-7756', 'Ultimate Fitness Gym Awkar interior', {
-    width: 1290,
-    height: 2796,
-  }),
-
-  trainersAmbience: img('awkar', 'img-7655', 'Coaching and training at Ultimate Fitness Gym', {
-    width: 1536,
-    height: 2048,
-  }),
+  locationAwkar: img('awkar', 'img-7756', 'Awkar gym interior', { width: 1290, height: 2796 }),
 }
 
+/** Gallery — videos first for cinematic impact */
 export const galleryByBranch = {
   mtayleb: [
-    img('mtayleb', 'img-7758', 'Strength floor at Ultimate Fitness Gym Mtayleb', { caption: 'Strength Floor' }),
-    img('mtayleb', 'img-7759', 'Wide view of the Mtayleb training floor', { caption: 'Training Floor' }),
-    img('mtayleb', 'img-7760', 'Premium equipment at UFG Mtayleb', { caption: 'Premium Equipment' }),
-    img('mtayleb', 'img-7761', 'Member training at UFG Mtayleb', { caption: 'In Session' }),
-    img('mtayleb', 'img-7762', 'Atmospheric training at UFG Mtayleb', { caption: 'Club Atmosphere' }),
-    img('mtayleb', 'img-7763', 'High-energy workout at UFG Mtayleb', { caption: 'High Energy' }),
-    vid('mtayleb', 'img-7717', 'Training reel from UFG Mtayleb', { caption: 'Training Reel' }),
-    vid('mtayleb', 'img-7718', 'Gym atmosphere video at UFG Mtayleb', { caption: 'Club Vibe' }),
+    vid('mtayleb', 'img-7718', 'Cinematic training reel at UFG Mtayleb', { caption: 'Club Energy' }),
+    vid('mtayleb', 'img-7717', 'Strength and lifting at UFG Mtayleb', { caption: 'Training Floor' }),
+    img('mtayleb', 'img-7762', 'Atmospheric training at UFG Mtayleb', { caption: 'Atmosphere' }),
+    img('mtayleb', 'img-7758', 'Strength floor at UFG Mtayleb', { caption: 'Strength Floor' }),
+    img('mtayleb', 'img-7759', 'Wide view of Mtayleb floor', { caption: 'The Floor' }),
+    img('mtayleb', 'img-7760', 'Premium equipment', { caption: 'Equipment' }),
+    img('mtayleb', 'img-7761', 'Member in session', { caption: 'In Session' }),
+    img('mtayleb', 'img-7763', 'High-energy workout', { caption: 'High Energy' }),
   ],
   awkar: [
-    img('awkar', 'img-7648', 'Strength area at Ultimate Fitness Gym Awkar', { caption: 'Strength Area' }),
-    img('awkar', 'img-7649', 'Cardio zone at UFG Awkar', { caption: 'Cardio Zone' }),
-    img('awkar', 'img-7650', 'Main training floor at UFG Awkar', { caption: 'Main Floor' }),
-    img('awkar', 'img-7655', 'Free weights at UFG Awkar', { caption: 'Free Weights' }),
-    img('awkar', 'img-7656', 'Functional training at UFG Awkar', { caption: 'Functional Zone' }),
-    img('awkar', 'img-7658', 'Conditioning space at UFG Awkar', { caption: 'Conditioning' }),
-    img('awkar', 'img-7659', 'Members training at UFG Awkar', { caption: 'Training Session' }),
-    img('awkar', 'img-7660', 'Club atmosphere at UFG Awkar', { caption: 'Club Atmosphere' }),
-    img('awkar', 'img-7661', 'Community training at UFG Awkar', { caption: 'Community' }),
-    img('awkar', 'img-7665', 'Facilities at UFG Awkar', { caption: 'Facilities' }),
-    vid('awkar', 'img-7651', 'Training video from UFG Awkar', { caption: 'Training Reel' }),
-    vid('awkar', 'img-7652', 'Gym atmosphere at UFG Awkar', { caption: 'Club Vibe' }),
+    vid('awkar', 'img-7651', 'Awkar training atmosphere', { caption: 'Club Energy' }),
+    vid('awkar', 'img-7652', 'Cardio and conditioning reel', { caption: 'Conditioning' }),
+    img('awkar', 'img-7650', 'Main training floor', { caption: 'Main Floor' }),
+    img('awkar', 'img-7648', 'Strength area', { caption: 'Strength Area' }),
+    img('awkar', 'img-7649', 'Cardio zone', { caption: 'Cardio Zone' }),
+    img('awkar', 'img-7655', 'Free weights', { caption: 'Free Weights' }),
+    img('awkar', 'img-7656', 'Functional zone', { caption: 'Functional' }),
+    img('awkar', 'img-7658', 'Conditioning space', { caption: 'Conditioning' }),
+    img('awkar', 'img-7660', 'Club atmosphere', { caption: 'Atmosphere' }),
+    img('awkar', 'img-7661', 'Community training', { caption: 'Community' }),
   ],
 }
 

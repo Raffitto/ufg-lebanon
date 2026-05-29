@@ -10,9 +10,9 @@ import {
 } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { activeConfig } from '../data/activeConfig'
-import { ufgMedia } from '../data/ufgMedia'
+import { videoStrategy } from '../data/ufgMedia'
 import { useReducedMotion } from '../hooks/useReducedMotion'
-import ResponsiveImage from './ui/ResponsiveImage'
+import BackgroundVideo from './ui/BackgroundVideo'
 import SectionHeader from './ui/SectionHeader'
 import SectionReveal from './ui/SectionReveal'
 
@@ -27,16 +27,16 @@ const iconMap = {
   'cup-soda': CupSoda,
 }
 
-const ambienceByServiceId = {
-  'personal-training': 0,
-  strength: 0,
-  functional: 2,
-  cardio: 1,
-}
+const VIDEO_SERVICE_IDS = [
+  'personal-training',
+  'strength',
+  'functional',
+  'cardio',
+  'bodybuilding',
+]
 
 export default function Services() {
   const reduced = useReducedMotion()
-  const ambience = ufgMedia.servicesAmbience
 
   return (
     <SectionReveal id="services" className="section-padding bg-[var(--color-surface)]/40">
@@ -48,13 +48,11 @@ export default function Services() {
         />
 
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 xl:grid-cols-4">
-          {activeConfig.services.map((service, index) => {
+          {activeConfig.services.map((service) => {
             const Icon = iconMap[service.icon] ?? Dumbbell
             const Card = reduced ? 'article' : motion.article
-            const ambienceIndex = ambienceByServiceId[service.id]
-            const media =
-              ambienceIndex !== undefined ? ambience[ambienceIndex] : ambience[index % ambience.length]
-            const showImage = index < 4 && media
+            const clip = videoStrategy.services[service.id]
+            const showVideo = VIDEO_SERVICE_IDS.includes(service.id) && clip
 
             return (
               <Card
@@ -70,14 +68,18 @@ export default function Services() {
                       viewport: { once: true, amount: 0.15 },
                     })}
               >
-                {showImage ? (
+                {showVideo ? (
                   <div className="relative -mx-px -mt-px aspect-[16/9] overflow-hidden">
-                    <ResponsiveImage
-                      media={media}
-                      sizesPreset="card"
-                      className="absolute inset-0"
-                      overlayClassName="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent"
+                    <BackgroundVideo
+                      media={clip}
+                      loadMode="viewport"
+                      overlayClassName="absolute inset-0 bg-gradient-to-t from-[#121212] via-black/30 to-transparent"
                     />
+                    {clip.caption ? (
+                      <span className="absolute top-2 left-2 z-10 rounded-full bg-black/55 px-2 py-0.5 text-[10px] tracking-wider text-[var(--color-yellow)] uppercase">
+                        {clip.caption}
+                      </span>
+                    ) : null}
                   </div>
                 ) : null}
                 <div className="p-5 sm:p-6">

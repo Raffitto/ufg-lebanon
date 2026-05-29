@@ -2,8 +2,8 @@ import { Clock, MessageCircle } from 'lucide-react'
 import { activeConfig } from '../data/activeConfig'
 import { ufgMedia } from '../data/ufgMedia'
 import { whatsappHref } from '../utils/links'
+import BackgroundVideo from './ui/BackgroundVideo'
 import Button from './ui/Button'
-import ResponsiveImage from './ui/ResponsiveImage'
 import SectionHeader from './ui/SectionHeader'
 import SectionReveal from './ui/SectionReveal'
 
@@ -21,12 +21,10 @@ export default function OfferSection() {
 
         <div className="relative overflow-hidden rounded-2xl border border-[var(--color-yellow)]/30 sm:rounded-[var(--radius-xl)] yellow-glow">
           <div className="absolute inset-0" aria-hidden="true">
-            <ResponsiveImage
+            <BackgroundVideo
               media={ufgMedia.offerBackdrop}
-              sizesPreset="full"
-              className="h-full w-full"
-              imgClassName="h-full w-full object-cover opacity-40"
-              overlayClassName="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-black/70"
+              loadMode="viewport"
+              overlayClassName="absolute inset-0 bg-gradient-to-r from-black via-black/88 to-black/75"
             />
           </div>
           <div className="absolute top-0 right-0 h-40 w-40 rounded-full bg-[var(--color-yellow)]/15 blur-3xl sm:h-56 sm:w-56" />

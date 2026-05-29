@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { activeConfig } from '../data/activeConfig'
 import { BRANCHES, defaultGalleryBranch, galleryByBranch } from '../data/ufgMedia'
 import { useReducedMotion } from '../hooks/useReducedMotion'
-import LazyVideo from './ui/LazyVideo'
+import GalleryVideo from './ui/GalleryVideo'
 import ResponsiveImage from './ui/ResponsiveImage'
 import SectionHeader from './ui/SectionHeader'
 import SectionReveal from './ui/SectionReveal'
@@ -28,7 +28,7 @@ function GalleryItem({ item, reduced, index }) {
           })}
     >
       {isVideo ? (
-        <LazyVideo media={item} className="absolute inset-0" />
+        <GalleryVideo media={item} className="absolute inset-0 z-[1]" />
       ) : (
         <ResponsiveImage
           media={item}
@@ -37,13 +37,14 @@ function GalleryItem({ item, reduced, index }) {
           showBlur
         />
       )}
-      <div className="pointer-events-none absolute inset-0 bg-black/40 transition group-hover:bg-black/25" />
-      <figcaption className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
+      <div className="pointer-events-none absolute inset-0 z-[2] bg-black/40 transition group-hover:bg-black/25" />
+      <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 z-[3] p-3 sm:p-4">
         <p className="font-display text-lg text-white uppercase sm:text-xl">
           {item.caption ?? item.alt}
         </p>
         <p className="text-[10px] tracking-[0.14em] text-white/60 uppercase sm:text-xs">
-          {activeConfig.sections.gallery.itemLabel} · {BRANCHES[item.branch]?.name}
+          {isVideo ? 'Video' : activeConfig.sections.gallery.itemLabel} ·{' '}
+          {BRANCHES[item.branch]?.name}
         </p>
       </figcaption>
     </Figure>
@@ -61,7 +62,7 @@ export default function Gallery() {
         <SectionHeader
           eyebrow={activeConfig.sections.gallery.eyebrow}
           title={activeConfig.sections.gallery.title}
-          subtitle={activeConfig.sections.gallery.subtitle}
+          subtitle="Photos and reels from the training floor — tap videos to play."
         />
 
         <div

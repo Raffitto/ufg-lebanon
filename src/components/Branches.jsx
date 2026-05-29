@@ -4,7 +4,7 @@ import { BRANCHES, ufgMedia } from '../data/ufgMedia'
 import { activeConfig } from '../data/activeConfig'
 import { useReducedMotion } from '../hooks/useReducedMotion'
 import { scrollToId } from '../utils/links'
-import ResponsiveImage from './ui/ResponsiveImage'
+import BackgroundVideo from './ui/BackgroundVideo'
 import SectionHeader from './ui/SectionHeader'
 import SectionReveal from './ui/SectionReveal'
 
@@ -41,13 +41,12 @@ export default function Branches() {
                     })}
               >
                 <div className="relative aspect-[16/10] sm:aspect-[5/3]">
-                  <ResponsiveImage
+                  <BackgroundVideo
                     media={media}
-                    sizesPreset="card"
-                    className="absolute inset-0"
-                    overlayClassName="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20"
+                    loadMode="viewport"
+                    overlayClassName="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/25"
                   />
-                  <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+                  <div className="absolute inset-x-0 bottom-0 z-10 p-4 sm:p-5">
                     <p className="font-display text-2xl text-white uppercase sm:text-3xl">
                       {branch.name}
                     </p>
@@ -56,6 +55,9 @@ export default function Branches() {
                       {branch.tagline}
                     </p>
                   </div>
+                  <span className="absolute top-3 right-3 z-10 rounded-full border border-white/20 bg-black/50 px-2 py-0.5 text-[10px] tracking-wider text-white/70 uppercase">
+                    Live
+                  </span>
                 </div>
                 <div className="flex flex-wrap items-center justify-between gap-3 p-4 sm:p-5">
                   <p className="text-sm text-[var(--color-gray)]">{branch.shortAddress}</p>

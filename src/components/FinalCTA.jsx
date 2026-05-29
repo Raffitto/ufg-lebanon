@@ -2,8 +2,8 @@ import { MessageCircle } from 'lucide-react'
 import { activeConfig } from '../data/activeConfig'
 import { ufgMedia } from '../data/ufgMedia'
 import { whatsappHref } from '../utils/links'
+import BackgroundVideo from './ui/BackgroundVideo'
 import Button from './ui/Button'
-import ResponsiveImage from './ui/ResponsiveImage'
 import SectionReveal from './ui/SectionReveal'
 
 export default function FinalCTA() {
@@ -14,12 +14,10 @@ export default function FinalCTA() {
       <div className="mx-auto w-full min-w-0 max-w-5xl">
         <div className="relative overflow-hidden rounded-2xl border border-[var(--color-yellow)]/25 sm:rounded-[var(--radius-xl)] yellow-glow">
           <div className="absolute inset-0" aria-hidden="true">
-            <ResponsiveImage
+            <BackgroundVideo
               media={ufgMedia.finalCtaBackdrop}
-              sizesPreset="full"
-              className="h-full w-full"
-              imgClassName="h-full w-full object-cover opacity-35"
-              overlayClassName="absolute inset-0 bg-gradient-to-r from-[#1a1600] via-black/90 to-black"
+              loadMode="viewport"
+              overlayClassName="absolute inset-0 bg-gradient-to-r from-[#1a1600]/95 via-black/90 to-black/95"
             />
           </div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,229,0,0.12),transparent_60%)]" />

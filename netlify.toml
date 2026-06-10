@@ -3,6 +3,19 @@
   publish = "dist"
 
 [[headers]]
+  for = "/ufg-media/*.mp4"
+  [headers.values]
+    Content-Type = "video/mp4"
+    Accept-Ranges = "bytes"
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/ufg-media/classes.png"
+  [headers.values]
+    Content-Type = "image/png"
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
   for = "/ufg-media/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"

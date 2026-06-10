@@ -415,8 +415,6 @@ export const ufgConfig = {
   nav: [
     { label: 'Why UFG', href: '#why-ufg' },
     { label: 'Services', href: '#services' },
-    { label: 'Memberships', href: '#memberships' },
-    { label: 'Classes', href: '#classes' },
     { label: 'Branches', href: '#branches' },
     { label: 'Offer', href: '#offer' },
     { label: 'Contact', href: '#contact' },

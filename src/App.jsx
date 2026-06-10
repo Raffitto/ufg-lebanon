@@ -5,6 +5,8 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import WhyUFG from './components/WhyUFG'
 import Services from './components/Services'
+import Memberships from './components/Memberships'
+import Classes from './components/Classes'
 import Branches from './components/Branches'
 import OfferSection from './components/OfferSection'
 import Location from './components/Location'
@@ -28,6 +30,8 @@ export default function App() {
         <Hero />
         <WhyUFG />
         <Services />
+        <Memberships />
+        <Classes />
         <Branches />
         <OfferSection />
         <Location />

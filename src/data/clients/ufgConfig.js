@@ -123,8 +123,15 @@ export const ufgConfig = {
     },
     memberships: {
       eyebrow: 'Memberships',
-      title: 'Choose Your Level',
-      subtitle: 'Flexible plans. Serious training. Upgrade when you are ready.',
+      title: 'Train Your Way',
+      subtitle:
+        'Flexible membership options for every goal, from first-time visitors to committed athletes.',
+    },
+    classes: {
+      eyebrow: 'Group Classes',
+      title: 'Train Together',
+      subtitle:
+        'Structured group sessions designed to improve strength, conditioning, endurance and performance.',
     },
     transformations: { eyebrow: 'Transformation' },
     trainers: {
@@ -208,48 +215,97 @@ export const ufgConfig = {
     },
   ],
 
-  memberships: [
-    {
-      id: 'basic',
-      name: 'Basic',
-      price: '$45',
-      period: '/ month',
-      description: 'Full gym access and essential training freedom.',
-      features: ['Gym floor access', 'Cardio & strength zones', 'Locker access', 'Member community'],
-      popular: false,
-      cta: 'Join Basic',
-    },
-    {
-      id: 'premium',
-      name: 'Premium',
-      price: '$65',
-      period: '/ month',
-      description: 'More structure, more coaching, more results.',
-      features: [
-        'Everything in Basic',
-        '2 PT sessions / month',
-        'Program check-ins',
-        'Priority booking',
-      ],
-      popular: true,
-      cta: 'Join Premium',
-    },
-    {
-      id: 'transformation',
-      name: 'Transformation',
-      price: '$120',
-      period: '/ month',
-      description: 'Maximum accountability for serious body change.',
-      features: [
-        'Everything in Premium',
-        'Weekly coaching',
-        'Nutrition plan',
-        'Progress tracking',
-      ],
-      popular: false,
-      cta: 'Start Transformation',
-    },
-  ],
+  memberships: {
+    cta: 'Join Now on WhatsApp',
+    ctaMessage: 'Hi, I want to join Ultimate Fitness Gym. Please share membership options and pricing.',
+    plans: [
+      {
+        id: 'day-pass',
+        name: 'Day Pass',
+        price: '$15',
+        description: 'Full gym access for a single visit.',
+      },
+      {
+        id: 'two-weeks',
+        name: '2 Weeks',
+        price: '$40',
+        description: 'Short-term access to build your routine.',
+      },
+      {
+        id: 'one-month',
+        name: '1 Month',
+        price: '$60',
+        description: 'Full access for 30 days — ideal for getting started.',
+        badge: 'popular',
+      },
+      {
+        id: 'ufg-prolift',
+        name: 'UFG + Prolift',
+        price: '$100',
+        note: 'Dual club access',
+        description: 'Train at UFG and Prolift with one membership.',
+      },
+      {
+        id: 'three-months',
+        name: '3 Months',
+        price: '$150',
+        description: 'Quarterly commitment for consistent progress.',
+      },
+      {
+        id: 'pt-bundle',
+        name: '10 PT Sessions + Membership',
+        price: '$250',
+        description: 'Personal training sessions bundled with full gym access.',
+        badge: 'premiumTraining',
+      },
+      {
+        id: 'twelve-months',
+        name: '12 Months',
+        price: '$540',
+        description: 'Year-round training at the best rate.',
+        badge: 'bestValue',
+      },
+    ],
+  },
+
+  classes: {
+    cta: 'Ask About Classes',
+    ctaMessage: 'Hi, I want to know more about UFG group classes and the weekly schedule.',
+    items: [
+      {
+        id: 'cardio-crush',
+        name: 'Cardio Crush',
+        day: 'Monday',
+        time: '7:00 PM',
+        focus: 'High-energy conditioning and endurance.',
+        icon: 'heart-pulse',
+      },
+      {
+        id: 'total-pump',
+        name: 'Total Pump',
+        day: 'Tuesday',
+        time: '7:00 PM',
+        focus: 'Strength and hypertrophy-focused training.',
+        icon: 'dumbbell',
+      },
+      {
+        id: 'dynamic-fix',
+        name: 'Dynamic Fix',
+        day: 'Wednesday',
+        time: '7:00 PM',
+        focus: 'Athletic movement and functional performance.',
+        icon: 'zap',
+      },
+      {
+        id: 'power-hour',
+        name: 'Power Hour',
+        day: 'Thursday',
+        time: '7:00 PM',
+        focus: 'Intense full-body strength and power.',
+        icon: 'flame',
+      },
+    ],
+  },
 
   transformations: {
     headline: 'Real Results. Real Discipline.',
@@ -359,6 +415,8 @@ export const ufgConfig = {
   nav: [
     { label: 'Why UFG', href: '#why-ufg' },
     { label: 'Services', href: '#services' },
+    { label: 'Memberships', href: '#memberships' },
+    { label: 'Classes', href: '#classes' },
     { label: 'Branches', href: '#branches' },
     { label: 'Offer', href: '#offer' },
     { label: 'Contact', href: '#contact' },

@@ -3,7 +3,7 @@ export const ufgConfig = {
   brandName: 'Ultimate Fitness Gym',
   shortName: 'UFG',
   tagline: 'Strength · Coaching · Transformation',
-  logo: null,
+  logo: '/ufg-logo-clean.png',
 
   colors: {
     black: '#050505',

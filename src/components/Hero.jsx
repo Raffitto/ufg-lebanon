@@ -5,6 +5,7 @@ import { useReducedMotion } from '../hooks/useReducedMotion'
 import { fadeIn, fadeUp, motionTransition } from '../utils/motion'
 import { scrollToId, whatsappHref } from '../utils/links'
 import Button from './ui/Button'
+import Logo from './ui/Logo'
 
 export default function Hero() {
   const { hero, copy } = activeConfig
@@ -82,6 +83,9 @@ export default function Hero() {
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22 viewBox=%220 0 40 40%22%3E%3Cpath d=%22M0 40h40V0%22 fill=%22none%22 stroke=%22rgba(255,255,255,0.04)%22/%3E%3C/svg%3E')] opacity-60" aria-hidden="true" />
+        <div className="absolute top-5 right-5 z-10 sm:top-6 sm:right-6">
+          <Logo imageClassName="h-12 w-12 sm:h-14 sm:w-14" />
+        </div>
         <div className="relative z-10 flex h-full min-h-[280px] flex-col justify-end p-6 sm:p-8 md:min-h-[360px]">
           <p className="font-display text-xs tracking-[0.22em] text-[var(--color-yellow)] uppercase sm:text-sm sm:tracking-[0.24em]">
             {activeConfig.tagline}

@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="page-mobile-footer border-t border-white/10 bg-black px-[var(--page-gutter)] py-8 sm:py-10 md:pb-10">
       <div className="mx-auto w-full min-w-0 max-w-7xl space-y-5 sm:space-y-6">
-        <Logo className="h-7 w-auto max-w-[6.5rem] object-contain sm:h-8" />
+        <Logo imageClassName="h-9 w-9 sm:h-10 sm:w-10" />
         <p className="max-w-md text-sm leading-relaxed text-[var(--color-gray)]">
           Mtayleb — {location.address}
           <span className="mt-1 block text-white/55">Awkar — Awkar, Lebanon</span>

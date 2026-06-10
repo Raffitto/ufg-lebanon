@@ -22,7 +22,7 @@ export default function Header() {
         style={{ minHeight: 'var(--header-h)' }}
       >
         <div className="min-w-0 shrink">
-          <Logo className="h-8 w-auto max-w-[6.25rem] object-contain sm:max-w-[7.5rem] md:h-9" />
+          <Logo imageClassName="h-7 w-7 sm:h-8 sm:w-8" />
         </div>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Main">

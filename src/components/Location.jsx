@@ -1,58 +1,54 @@
 import { Clock, MapPin, MessageCircle, Phone } from 'lucide-react'
+import { BRANCHES } from '../data/ufgMedia'
 import { activeConfig } from '../data/activeConfig'
-import { BRANCHES, ufgMedia } from '../data/ufgMedia'
 import { phoneHref, whatsappHref } from '../utils/links'
 import Button from './ui/Button'
-import ResponsiveImage from './ui/ResponsiveImage'
 import SocialLinks from './ui/SocialLinks'
 import SectionHeader from './ui/SectionHeader'
 import SectionReveal from './ui/SectionReveal'
 
-const branchLocations = [
-  { branch: BRANCHES.mtayleb, media: ufgMedia.locationMtayleb, primary: true },
-  { branch: BRANCHES.awkar, media: ufgMedia.locationAwkar, primary: false },
-]
+const branchList = [BRANCHES.mtayleb, BRANCHES.awkar]
 
 export default function Location() {
   const { location, openingHours, opensAt, sections, copy } = activeConfig
   const locationSection = sections.location
 
   return (
-    <SectionReveal id="location" className="section-padding bg-[var(--color-surface)]/50">
+    <SectionReveal id="contact" className="section-padding">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           eyebrow={locationSection.eyebrow}
           title={locationSection.title}
-          subtitle="Mtayleb & Awkar — train at the branch that fits your routine."
+          subtitle="Mtayleb & Awkar — message us on WhatsApp, call, or visit the branch that fits your routine."
           align="left"
         />
 
         <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
-          {branchLocations.map(({ branch, media, primary }) => (
+          {branchList.map((branch) => (
             <article
               key={branch.id}
               className="glass-card overflow-hidden rounded-2xl sm:rounded-[var(--radius-xl)]"
             >
-              <div className="relative aspect-[16/10]">
-                <ResponsiveImage
-                  media={media}
-                  sizesPreset="section"
-                  className="absolute inset-0"
-                  overlayClassName="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"
-                />
-                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
-                  <p className="font-display text-xl text-white uppercase sm:text-2xl">
-                    {branch.name}
-                    {primary ? (
-                      <span className="ml-2 text-xs tracking-wide text-[var(--color-yellow)] normal-case">
-                        · Main
-                      </span>
-                    ) : null}
-                  </p>
-                  <p className="mt-1 text-xs text-white/70 sm:text-sm">{branch.shortAddress}</p>
+              <div className="relative overflow-hidden p-5 sm:p-6">
+                <div
+                  className="relative flex min-h-[8rem] items-end overflow-hidden rounded-xl bg-[linear-gradient(135deg,#1a1600_0%,#121212_55%,#050505_100%)] p-4 sm:min-h-[9rem] sm:p-5"
+                >
+                  <div
+                    className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,rgba(255,229,0,0.14),transparent_50%)]"
+                    aria-hidden="true"
+                  />
+                  <div className="relative z-10">
+                    <p className="font-display text-2xl text-white uppercase sm:text-3xl">
+                      {branch.name}
+                    </p>
+                    <p className="mt-1 flex items-center gap-1.5 text-xs text-[var(--color-yellow)] sm:text-sm">
+                      <MapPin className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                      {branch.shortAddress}
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div className="p-4 sm:p-5">
+              <div className="space-y-2.5 px-5 pb-5 sm:px-6 sm:pb-6">
                 <Button
                   href={`https://www.google.com/maps/search/?api=1&query=${branch.mapsQuery}`}
                   variant="secondary"
@@ -60,6 +56,17 @@ export default function Location() {
                   ariaLabel={`Open ${branch.name} in Google Maps`}
                 >
                   {copy.openMapsCta}
+                </Button>
+                <Button
+                  href={whatsappHref(
+                    activeConfig.whatsapp,
+                    `Hi, I want to visit the ${branch.name} branch.`,
+                  )}
+                  icon={MessageCircle}
+                  fullWidth
+                  ariaLabel={copy.whatsappCta}
+                >
+                  {copy.whatsappCta}
                 </Button>
               </div>
             </article>
@@ -141,39 +148,28 @@ export default function Location() {
             </div>
           </div>
 
-          <div className="glass-card overflow-hidden rounded-2xl sm:rounded-[var(--radius-xl)]">
-            {location.embedUrl ? (
-              <iframe
-                title={`${activeConfig.brandName} map`}
-                src={location.embedUrl}
-                className="aspect-[4/5] min-h-[240px] w-full border-0 sm:aspect-auto sm:min-h-[320px] lg:min-h-[360px]"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            ) : (
-              <div className="relative min-h-[240px] sm:min-h-[320px] lg:min-h-[360px]">
-                <ResponsiveImage
-                  media={ufgMedia.locationMtayleb}
-                  sizesPreset="section"
-                  className="absolute inset-0"
-                  overlayClassName="absolute inset-0 bg-black/55"
-                />
-                <div className="relative flex h-full min-h-[240px] flex-col items-center justify-center gap-3 p-6 text-center sm:min-h-[320px] sm:gap-4 sm:p-8">
-                  <MapPin className="h-9 w-9 text-[var(--color-yellow)] sm:h-10 sm:w-10" aria-hidden="true" />
-                  <p className="font-display text-xl text-white uppercase sm:text-2xl">
-                    {location.shortAddress}
-                  </p>
-                  <Button
-                    href={location.googleMapsUrl}
-                    fullWidth
-                    className="max-w-xs"
-                    ariaLabel={copy.openMapsCta}
-                  >
-                    {copy.openMapsCta}
-                  </Button>
-                </div>
-              </div>
-            )}
+          <div className="glass-card flex min-h-[240px] flex-col items-center justify-center gap-4 rounded-2xl p-6 text-center sm:min-h-[320px] sm:rounded-[var(--radius-xl)] sm:gap-5 sm:p-8 lg:min-h-[360px]">
+            <div
+              className="flex h-16 w-16 items-center justify-center rounded-2xl border border-[var(--color-yellow)]/25 bg-[var(--color-yellow)]/10"
+              aria-hidden="true"
+            >
+              <MapPin className="h-8 w-8 text-[var(--color-yellow)]" />
+            </div>
+            <p className="font-display text-2xl text-white uppercase sm:text-3xl">
+              Join Now
+            </p>
+            <p className="max-w-sm text-sm leading-relaxed text-[var(--color-gray)]">
+              Ready to train? Contact us on WhatsApp or walk in at Mtayleb or Awkar.
+            </p>
+            <Button
+              href={whatsappHref(activeConfig.whatsapp, activeConfig.whatsappMessage)}
+              icon={MessageCircle}
+              fullWidth
+              className="max-w-xs"
+              ariaLabel={copy.headerJoinCta}
+            >
+              {copy.headerJoinCta}
+            </Button>
           </div>
         </div>
       </div>

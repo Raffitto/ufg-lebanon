@@ -1,8 +1,6 @@
 import { Clock, MessageCircle } from 'lucide-react'
 import { activeConfig } from '../data/activeConfig'
-import { ufgMedia } from '../data/ufgMedia'
 import { whatsappHref } from '../utils/links'
-import BackgroundVideo from './ui/BackgroundVideo'
 import Button from './ui/Button'
 import SectionHeader from './ui/SectionHeader'
 import SectionReveal from './ui/SectionReveal'
@@ -11,7 +9,7 @@ export default function OfferSection() {
   const { offer } = activeConfig
 
   return (
-    <SectionReveal id="offer" className="section-padding">
+    <SectionReveal id="offer" className="section-padding bg-[var(--color-surface)]/40">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           eyebrow={activeConfig.sections.offer.eyebrow}
@@ -20,13 +18,14 @@ export default function OfferSection() {
         />
 
         <div className="relative overflow-hidden rounded-2xl border border-[var(--color-yellow)]/30 sm:rounded-[var(--radius-xl)] yellow-glow">
-          <div className="absolute inset-0" aria-hidden="true">
-            <BackgroundVideo
-              media={ufgMedia.offerBackdrop}
-              loadMode="viewport"
-              overlayClassName="absolute inset-0 bg-gradient-to-r from-black via-black/88 to-black/75"
-            />
-          </div>
+          <div
+            className="absolute inset-0 bg-[linear-gradient(135deg,#1a1600_0%,#0d0d0d_45%,#050505_100%)]"
+            aria-hidden="true"
+          />
+          <div
+            className="absolute inset-0 bg-[radial-gradient(circle_at_90%_10%,rgba(255,229,0,0.2),transparent_45%)]"
+            aria-hidden="true"
+          />
           <div className="absolute top-0 right-0 h-40 w-40 rounded-full bg-[var(--color-yellow)]/15 blur-3xl sm:h-56 sm:w-56" />
           <div className="relative flex flex-col gap-6 p-5 sm:p-8 md:p-12 lg:grid lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:gap-8">
             <div className="space-y-3 sm:space-y-5">

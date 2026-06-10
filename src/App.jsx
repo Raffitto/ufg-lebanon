@@ -3,16 +3,11 @@ import { activeConfig } from './data/activeConfig'
 import { applyBrandTheme } from './utils/theme'
 import Header from './components/Header'
 import Hero from './components/Hero'
-import OfferSection from './components/OfferSection'
-import Branches from './components/Branches'
+import WhyUFG from './components/WhyUFG'
 import Services from './components/Services'
-import Memberships from './components/Memberships'
-import Transformations from './components/Transformations'
-import Trainers from './components/Trainers'
-import Gallery from './components/Gallery'
-import Reviews from './components/Reviews'
+import Branches from './components/Branches'
+import OfferSection from './components/OfferSection'
 import Location from './components/Location'
-import FAQ from './components/FAQ'
 import FinalCTA from './components/FinalCTA'
 import StickyMobileCTA from './components/StickyMobileCTA'
 import Footer from './components/Footer'
@@ -31,16 +26,11 @@ export default function App() {
       <Header />
       <main className="page-main w-full min-w-0">
         <Hero />
-        <OfferSection />
-        <Branches />
+        <WhyUFG />
         <Services />
-        <Memberships />
-        <Transformations />
-        <Trainers />
-        <Gallery />
-        <Reviews />
+        <Branches />
+        <OfferSection />
         <Location />
-        <FAQ />
         <FinalCTA />
       </main>
       <Footer />

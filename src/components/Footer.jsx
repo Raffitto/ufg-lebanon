@@ -11,7 +11,8 @@ export default function Footer() {
       <div className="mx-auto w-full min-w-0 max-w-7xl space-y-5 sm:space-y-6">
         <Logo className="h-7 w-auto max-w-[6.5rem] object-contain sm:h-8" />
         <p className="max-w-md text-sm leading-relaxed text-[var(--color-gray)]">
-          {location.address}
+          Mtayleb — {location.address}
+          <span className="mt-1 block text-white/55">Awkar — Awkar, Lebanon</span>
         </p>
         <SocialLinks size="md" />
         {footer.tagline ? (

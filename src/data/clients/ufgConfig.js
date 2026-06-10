@@ -2,8 +2,8 @@
 export const ufgConfig = {
   brandName: 'Ultimate Fitness Gym',
   shortName: 'UFG',
-  tagline: 'Elite transformation club',
-  logo: '/ufg-logo.jpg',
+  tagline: 'Strength · Coaching · Transformation',
+  logo: null,
 
   colors: {
     black: '#050505',
@@ -15,9 +15,9 @@ export const ufgConfig = {
   },
 
   seo: {
-    title: 'Ultimate Fitness Gym | Built Different',
+    title: 'Ultimate Fitness Gym | Mtayleb & Awkar Lebanon',
     description:
-      'Premium strength, conditioning, and transformation training at Ultimate Fitness Gym — Mtayleb & Awkar, Lebanon.',
+      'Serious strength, coaching, and transformation training at Ultimate Fitness Gym — Mtayleb & Awkar, Lebanon. Join now on WhatsApp.',
   },
 
   phone: '+961 3 081 084',
@@ -56,12 +56,50 @@ export const ufgConfig = {
   opensDisplay: '7AM',
 
   hero: {
-    badge: 'Limited Time Offer',
-    headline: 'BUILT DIFFERENT',
-    subheadline: 'Train harder. Move better. Become stronger.',
+    badge: 'Mtayleb & Awkar',
+    headline: 'BUILT FOR STRENGTH',
+    subheadline:
+      'Lebanon\'s serious training club — elite coaching, premium equipment, and a culture built for fitness and transformation.',
     backgroundImage: null,
-    primaryCta: 'Join on WhatsApp',
-    secondaryCta: 'View Memberships',
+    primaryCta: 'Join Now on WhatsApp',
+    secondaryCta: 'Visit a Branch',
+  },
+
+  whyUfg: {
+    eyebrow: 'Why UFG',
+    title: 'Train With Purpose',
+    subtitle:
+      'Not just a gym — a disciplined environment for strength, conditioning, and real body transformation.',
+    pillars: [
+      {
+        id: 'coaching',
+        title: 'Elite Coaching',
+        description:
+          'Expert trainers who push form, progression, and accountability — every session counts.',
+        icon: 'dumbbell',
+      },
+      {
+        id: 'transformation',
+        title: 'Real Transformation',
+        description:
+          'Structured programs for fat loss, muscle gain, and total body change — built around your goals.',
+        icon: 'target',
+      },
+      {
+        id: 'equipment',
+        title: 'Premium Equipment',
+        description:
+          'Heavy racks, free weights, cardio zones, and functional areas — everything you need to perform.',
+        icon: 'shield',
+      },
+      {
+        id: 'community',
+        title: 'Two Branches',
+        description:
+          'Train at Mtayleb or Awkar — same elite standard, same serious training culture.',
+        icon: 'users',
+      },
+    ],
   },
 
   offer: {
@@ -76,12 +114,12 @@ export const ufgConfig = {
   },
 
   sections: {
-    offer: { eyebrow: 'Limited Time' },
+    offer: { eyebrow: 'Launch Offer' },
     services: {
-      eyebrow: 'What We Offer',
-      title: 'Train With Purpose',
+      eyebrow: 'Training Types',
+      title: 'Services & Programs',
       subtitle:
-        'Strength, conditioning, transformation. Built for members who show up.',
+        'Strength, conditioning, personal training, and transformation — built for members who show up.',
     },
     memberships: {
       eyebrow: 'Memberships',
@@ -104,8 +142,8 @@ export const ufgConfig = {
     },
     reviews: { eyebrow: 'Google Reviews' },
     location: {
-      eyebrow: 'Visit Us',
-      title: 'Find The Club',
+      eyebrow: 'Contact',
+      title: 'Get In Touch',
       locationCardTitle: 'Location',
       hoursCardTitle: 'Opening Hours',
       opensFromLabel: 'Opens from',
@@ -308,37 +346,37 @@ export const ufgConfig = {
   ],
 
   finalCta: {
-    headline: 'Your next version starts here.',
-    subheadline: 'No excuses. Just progress. Start today.',
-    cta: 'Join on WhatsApp',
+    headline: 'Start Your Transformation Today',
+    subheadline: 'Join on WhatsApp, call us, or walk in at Mtayleb or Awkar.',
+    cta: 'Join Now on WhatsApp',
   },
 
   footer: {
-    tagline: 'Built for transformation.',
+    tagline: 'Strength · Fitness · Transformation',
     copyrightSuffix: 'All rights reserved.',
   },
 
   nav: [
-    { label: 'Offer', href: '#offer' },
-    { label: 'Branches', href: '#branches' },
+    { label: 'Why UFG', href: '#why-ufg' },
     { label: 'Services', href: '#services' },
-    { label: 'Memberships', href: '#memberships' },
-    { label: 'Results', href: '#results' },
-    { label: 'Trainers', href: '#trainers' },
-    { label: 'Gallery', href: '#gallery' },
-    { label: 'Reviews', href: '#reviews' },
-    { label: 'Location', href: '#location' },
+    { label: 'Branches', href: '#branches' },
+    { label: 'Offer', href: '#offer' },
+    { label: 'Contact', href: '#contact' },
   ],
 
   copy: {
-    builtFor: 'Built for discipline.',
-    trainWithPurpose: 'Train with purpose.',
-    startToday: 'Start today.',
+    builtFor: 'Built for strength.',
+    trainWithPurpose: 'Coaching · Fitness · Transformation',
+    startToday: 'Limited spots — message us today.',
     opensDailyLabel: 'Opens Daily',
+    branchesLabel: 'Branches',
+    trainLocalLabel: 'Lebanon',
+    viewOfferLabel: 'View launch offer',
     googleRatingLabel: 'Google Rating',
     headerJoinCta: 'Join Now',
     callCta: 'Call Now',
     whatsappCta: 'WhatsApp',
+    visitBranchCta: 'Visit Branch',
     reviewOnGoogleCta: 'Review on Google',
     seeLocationCta: 'See Location',
     openMapsCta: 'Open in Google Maps',

@@ -1,8 +1,6 @@
-import { MessageCircle } from 'lucide-react'
+import { MapPin, MessageCircle } from 'lucide-react'
 import { activeConfig } from '../data/activeConfig'
-import { ufgMedia } from '../data/ufgMedia'
 import { whatsappHref } from '../utils/links'
-import BackgroundVideo from './ui/BackgroundVideo'
 import Button from './ui/Button'
 import SectionReveal from './ui/SectionReveal'
 
@@ -13,13 +11,10 @@ export default function FinalCTA() {
     <SectionReveal className="section-padding !pb-10 sm:!pb-12 md:!pb-16">
       <div className="mx-auto w-full min-w-0 max-w-5xl">
         <div className="relative overflow-hidden rounded-2xl border border-[var(--color-yellow)]/25 sm:rounded-[var(--radius-xl)] yellow-glow">
-          <div className="absolute inset-0" aria-hidden="true">
-            <BackgroundVideo
-              media={ufgMedia.finalCtaBackdrop}
-              loadMode="viewport"
-              overlayClassName="absolute inset-0 bg-gradient-to-r from-[#1a1600]/95 via-black/90 to-black/95"
-            />
-          </div>
+          <div
+            className="absolute inset-0 bg-[linear-gradient(145deg,#1a1600_0%,#0a0a0a_50%,#050505_100%)]"
+            aria-hidden="true"
+          />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,229,0,0.12),transparent_60%)]" />
           <div className="relative space-y-4 px-[var(--page-gutter)] py-10 text-center sm:space-y-5 sm:px-10 sm:py-14">
             <h2 className="font-display mx-auto max-w-[14ch] text-[clamp(1.75rem,7.5vw,2rem)] leading-[0.95] text-white uppercase sm:max-w-none sm:text-4xl md:text-5xl lg:text-6xl">
@@ -28,15 +23,27 @@ export default function FinalCTA() {
             <p className="mx-auto max-w-md text-sm text-[var(--color-gray)] sm:text-base">
               {finalCta.subheadline}
             </p>
-            <Button
-              href={whatsappHref(activeConfig.whatsapp, activeConfig.whatsappMessage)}
-              icon={MessageCircle}
-              fullWidth
-              className="mx-auto max-w-md"
-              ariaLabel={finalCta.cta}
-            >
-              {finalCta.cta}
-            </Button>
+            <div className="mx-auto flex max-w-md flex-col gap-2.5 sm:flex-row sm:justify-center">
+              <Button
+                href={whatsappHref(activeConfig.whatsapp, activeConfig.whatsappMessage)}
+                icon={MessageCircle}
+                fullWidth
+                className="sm:flex-1"
+                ariaLabel={finalCta.cta}
+              >
+                {finalCta.cta}
+              </Button>
+              <Button
+                href={activeConfig.location.googleMapsUrl}
+                variant="secondary"
+                icon={MapPin}
+                fullWidth
+                className="sm:flex-1"
+                ariaLabel={activeConfig.copy.visitBranchCta}
+              >
+                {activeConfig.copy.visitBranchCta}
+              </Button>
+            </div>
           </div>
         </div>
       </div>

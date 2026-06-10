@@ -1,108 +1,75 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, MapPin, MessageCircle } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 import { activeConfig } from '../data/activeConfig'
+import { launchMedia } from '../data/launchMedia'
 import { useReducedMotion } from '../hooks/useReducedMotion'
-import { fadeIn, fadeUp, motionTransition } from '../utils/motion'
-import { scrollToId, whatsappHref } from '../utils/links'
-import Button from './ui/Button'
-import Logo from './ui/Logo'
+import { fadeUp, motionTransition } from '../utils/motion'
+import { scrollToId } from '../utils/links'
+import SectionVideo from './ui/SectionVideo'
+
+function BranchSelectorCard({ branch, reduced, index }) {
+  const Card = reduced ? 'button' : motion.button
+
+  return (
+    <Card
+      type="button"
+      onClick={() => scrollToId(branch.targetId)}
+      className="group relative min-w-0 overflow-hidden rounded-2xl border border-white/15 bg-black/45 p-6 text-left backdrop-blur-md transition hover:border-[var(--color-yellow)]/50 hover:bg-black/55 sm:rounded-[var(--radius-xl)] sm:p-8"
+      {...(reduced
+        ? {}
+        : {
+            initial: { opacity: 0, y: 20 },
+            animate: { opacity: 1, y: 0 },
+            transition: { delay: 0.15 + index * 0.08, duration: 0.5 },
+            whileHover: { y: -4, scale: 1.01 },
+            whileTap: { scale: 0.99 },
+          })}
+    >
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,229,0,0.12),transparent_55%)] opacity-0 transition group-hover:opacity-100"
+        aria-hidden="true"
+      />
+      <div className="relative z-10 flex items-end justify-between gap-4">
+        <div className="min-w-0">
+          <p className="font-display text-3xl leading-none text-white uppercase sm:text-4xl md:text-5xl">
+            {branch.name}
+          </p>
+          <p className="mt-3 text-sm tracking-wide text-[var(--color-yellow)] sm:text-base">
+            {branch.tagline}
+          </p>
+        </div>
+        <ChevronRight
+          className="h-6 w-6 shrink-0 text-[var(--color-yellow)] transition group-hover:translate-x-0.5 sm:h-7 sm:w-7"
+          aria-hidden="true"
+        />
+      </div>
+    </Card>
+  )
+}
 
 export default function Hero() {
-  const { hero, copy } = activeConfig
+  const { hero } = activeConfig
   const reduced = useReducedMotion()
 
-  const primaryBlock = (
-    <div className="min-w-0 space-y-5 sm:space-y-7">
+  const content = (
+    <div className="mx-auto flex w-full min-w-0 max-w-3xl flex-col items-center space-y-6 text-center sm:space-y-8">
       {hero.badge ? (
-        <p className="inline-flex max-w-full rounded-full border border-[var(--color-yellow)]/30 bg-[var(--color-yellow)]/10 px-3 py-1 text-[10px] font-semibold tracking-[0.14em] text-[var(--color-yellow)] uppercase sm:px-4 sm:py-1.5 sm:text-xs sm:tracking-[0.2em]">
+        <p className="inline-flex max-w-full rounded-full border border-[var(--color-yellow)]/30 bg-black/40 px-3 py-1 text-[10px] font-semibold tracking-[0.14em] text-[var(--color-yellow)] uppercase backdrop-blur-sm sm:px-4 sm:py-1.5 sm:text-xs sm:tracking-[0.2em]">
           {hero.badge}
         </p>
       ) : null}
 
       <div className="space-y-3 sm:space-y-4">
         <h1 className="font-display hero-title text-white uppercase">{hero.headline}</h1>
-        <p className="max-w-md text-[0.9375rem] leading-snug text-[var(--color-gray)] sm:text-base md:max-w-xl md:text-lg">
+        <p className="mx-auto max-w-lg text-[0.9375rem] leading-snug text-white/75 sm:text-base md:text-lg">
           {hero.subheadline}
         </p>
       </div>
 
-      <div className="flex w-full min-w-0 flex-col gap-2.5 sm:gap-3 sm:flex-row sm:flex-wrap">
-        <Button
-          href={whatsappHref(activeConfig.whatsapp, activeConfig.whatsappMessage)}
-          icon={MessageCircle}
-          fullWidth
-          className="sm:flex-1 sm:min-w-[10rem]"
-          ariaLabel={hero.primaryCta}
-        >
-          {hero.primaryCta}
-        </Button>
-        <Button
-          variant="secondary"
-          onClick={() => scrollToId('branches')}
-          icon={MapPin}
-          fullWidth
-          className="sm:flex-1 sm:min-w-[10rem]"
-          ariaLabel={hero.secondaryCta}
-        >
-          {hero.secondaryCta}
-        </Button>
-      </div>
-
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3">
-        <div className="min-w-0 rounded-xl border border-white/10 bg-white/5 px-2.5 py-3 sm:px-4 sm:py-4">
-          <p className="font-display text-xl text-[var(--color-yellow)] sm:text-2xl">
-            {activeConfig.opensDisplay}
-          </p>
-          <p className="text-[10px] tracking-wide text-white/55 uppercase sm:text-xs">
-            {copy.opensDailyLabel}
-          </p>
-        </div>
-        <div className="min-w-0 rounded-xl border border-white/10 bg-white/5 px-2.5 py-3 sm:px-4 sm:py-4">
-          <p className="font-display text-xl text-white sm:text-2xl">2</p>
-          <p className="text-[10px] tracking-wide text-white/55 uppercase sm:text-xs">
-            {copy.branchesLabel}
-          </p>
-        </div>
-        <div className="col-span-2 min-w-0 rounded-xl border border-[var(--color-yellow)]/20 bg-[var(--color-yellow)]/5 px-2.5 py-3 sm:col-span-1 sm:px-4 sm:py-4">
-          <p className="font-display text-lg leading-tight text-white uppercase sm:text-xl">
-            Mtayleb · Awkar
-          </p>
-          <p className="text-[10px] tracking-wide text-white/55 uppercase sm:text-xs">
-            {copy.trainLocalLabel}
-          </p>
-        </div>
-      </div>
-    </div>
-  )
-
-  const sideCard = (
-    <div className="glass-card relative mt-6 hidden min-w-0 overflow-hidden rounded-[var(--radius-xl)] sm:mt-8 sm:block sm:p-0 lg:mt-0">
-      <div className="relative min-h-[280px] bg-[linear-gradient(145deg,#1a1600_0%,#121212_45%,#050505_100%)] md:min-h-[360px]">
-        <div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,229,0,0.18),transparent_50%)]"
-          aria-hidden="true"
-        />
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22 viewBox=%220 0 40 40%22%3E%3Cpath d=%22M0 40h40V0%22 fill=%22none%22 stroke=%22rgba(255,255,255,0.04)%22/%3E%3C/svg%3E')] opacity-60" aria-hidden="true" />
-        <div className="absolute top-5 right-5 z-10 sm:top-6 sm:right-6">
-          <Logo imageClassName="h-12 w-12 sm:h-14 sm:w-14" />
-        </div>
-        <div className="relative z-10 flex h-full min-h-[280px] flex-col justify-end p-6 sm:p-8 md:min-h-[360px]">
-          <p className="font-display text-xs tracking-[0.22em] text-[var(--color-yellow)] uppercase sm:text-sm sm:tracking-[0.24em]">
-            {activeConfig.tagline}
-          </p>
-          <p className="mt-3 font-display text-2xl leading-none text-white uppercase md:text-3xl">
-            {activeConfig.copy.builtFor}
-          </p>
-          <p className="mt-2 text-sm text-white/70">{activeConfig.copy.trainWithPurpose}</p>
-          <button
-            type="button"
-            onClick={() => scrollToId('offer')}
-            className="mt-5 inline-flex items-center gap-2 text-xs font-semibold tracking-wide text-[var(--color-yellow)] uppercase transition hover:text-white"
-          >
-            {copy.viewOfferLabel}
-            <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-          </button>
-        </div>
+      <div className="grid w-full min-w-0 grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2">
+        {hero.branchCards.map((branch, index) => (
+          <BranchSelectorCard key={branch.targetId} branch={branch} reduced={reduced} index={index} />
+        ))}
       </div>
     </div>
   )
@@ -110,41 +77,22 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden pt-[calc(var(--header-h)+0.75rem)] pb-8 sm:min-h-[100svh] sm:pb-16 sm:pt-24 md:pb-20"
+      className="relative flex min-h-[100svh] items-center overflow-hidden pt-[var(--header-h)] pb-10 sm:pb-16"
     >
-      <div
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,#0a0a0a_0%,#050505_55%,#050505_100%),radial-gradient(circle_at_18%_12%,rgba(255,229,0,0.14),transparent_42%),radial-gradient(circle_at_85%_75%,rgba(255,229,0,0.06),transparent_35%)]"
-        aria-hidden="true"
-      />
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22 viewBox=%220 0 40 40%22%3E%3Cpath d=%22M0 40h40V0%22 fill=%22none%22 stroke=%22rgba(255,255,255,0.03)%22/%3E%3C/svg%3E')] opacity-40" aria-hidden="true" />
-      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[var(--color-black)] to-transparent sm:h-40" aria-hidden="true" />
+      <SectionVideo src={launchMedia.intro} loadMode="immediate" priority className="absolute inset-0" />
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[var(--color-black)] to-transparent sm:h-48" aria-hidden="true" />
 
-      <div className="relative z-10 mx-auto w-full min-w-0 max-w-7xl px-[var(--page-gutter)] lg:grid lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16">
+      <div className="relative z-10 w-full px-[var(--page-gutter)] py-8 sm:py-12">
         {reduced ? (
-          primaryBlock
+          content
         ) : (
           <motion.div
             initial="hidden"
             animate="visible"
             transition={motionTransition(0.6)}
             variants={fadeUp}
-            className="min-w-0"
           >
-            {primaryBlock}
-          </motion.div>
-        )}
-
-        {reduced ? (
-          sideCard
-        ) : (
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            transition={motionTransition(0.65, 0.08)}
-            variants={fadeIn}
-            className="min-w-0"
-          >
-            {sideCard}
+            {content}
           </motion.div>
         )}
       </div>

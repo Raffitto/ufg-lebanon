@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { activeConfig } from '../data/activeConfig'
-import { scrollToId, whatsappHref } from '../utils/links'
+import { scrollToId } from '../utils/links'
 import Logo from './ui/Logo'
 import Button from './ui/Button'
 import SocialLinks from './ui/SocialLinks'
@@ -40,11 +40,8 @@ export default function Header() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <SocialLinks size="sm" />
-          <Button
-            href={whatsappHref(activeConfig.whatsapp, activeConfig.whatsappMessage)}
-            ariaLabel="Join on WhatsApp"
-          >
-            {activeConfig.copy.headerJoinCta}
+          <Button onClick={() => scrollToId('contact')} ariaLabel={activeConfig.copy.viewLocationCta}>
+            {activeConfig.copy.viewLocationCta}
           </Button>
         </div>
 
@@ -82,11 +79,14 @@ export default function Header() {
               <SocialLinks size="md" />
             </div>
             <Button
-              href={whatsappHref(activeConfig.whatsapp, activeConfig.whatsappMessage)}
+              onClick={() => {
+                scrollToId('contact')
+                setOpen(false)
+              }}
               fullWidth
-              ariaLabel="Join on WhatsApp"
+              ariaLabel={activeConfig.copy.viewLocationCta}
             >
-              {activeConfig.copy.headerJoinCta}
+              {activeConfig.copy.viewLocationCta}
             </Button>
           </nav>
         </div>

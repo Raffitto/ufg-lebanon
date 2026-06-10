@@ -1,4 +1,4 @@
-import { MapPin, MessageCircle } from 'lucide-react'
+import { MessageCircle } from 'lucide-react'
 import { activeConfig } from '../data/activeConfig'
 import { whatsappHref } from '../utils/links'
 import Button from './ui/Button'
@@ -23,27 +23,15 @@ export default function FinalCTA() {
             <p className="mx-auto max-w-md text-sm text-[var(--color-gray)] sm:text-base">
               {finalCta.subheadline}
             </p>
-            <div className="mx-auto flex max-w-md flex-col gap-2.5 sm:flex-row sm:justify-center">
-              <Button
-                href={whatsappHref(activeConfig.whatsapp, activeConfig.whatsappMessage)}
-                icon={MessageCircle}
-                fullWidth
-                className="sm:flex-1"
-                ariaLabel={finalCta.cta}
-              >
-                {finalCta.cta}
-              </Button>
-              <Button
-                href={activeConfig.location.googleMapsUrl}
-                variant="secondary"
-                icon={MapPin}
-                fullWidth
-                className="sm:flex-1"
-                ariaLabel={activeConfig.copy.visitBranchCta}
-              >
-                {activeConfig.copy.visitBranchCta}
-              </Button>
-            </div>
+            <Button
+              href={whatsappHref(activeConfig.whatsapp, activeConfig.whatsappMessage)}
+              icon={MessageCircle}
+              fullWidth
+              className="mx-auto max-w-md"
+              ariaLabel={finalCta.cta}
+            >
+              {finalCta.cta}
+            </Button>
           </div>
         </div>
       </div>

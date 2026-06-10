@@ -1,6 +1,6 @@
-import { Clock, MessageCircle } from 'lucide-react'
+import { Clock } from 'lucide-react'
 import { activeConfig } from '../data/activeConfig'
-import { whatsappHref } from '../utils/links'
+import { scrollToId } from '../utils/links'
 import Button from './ui/Button'
 import SectionHeader from './ui/SectionHeader'
 import SectionReveal from './ui/SectionReveal'
@@ -47,11 +47,7 @@ export default function OfferSection() {
 
             <div className="flex flex-col gap-3 lg:items-end">
               <Button
-                href={whatsappHref(
-                  activeConfig.whatsapp,
-                  `Hi, I'm interested in the ${offer.title} offer (${offer.price}).`,
-                )}
-                icon={MessageCircle}
+                onClick={() => scrollToId('memberships')}
                 fullWidth
                 ariaLabel={offer.cta}
               >

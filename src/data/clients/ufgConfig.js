@@ -48,21 +48,45 @@ export const ufgConfig = {
   },
 
   openingHours: [
-    { day: 'Monday – Friday', hours: '7:00 AM – 10:00 PM' },
-    { day: 'Saturday', hours: '8:00 AM – 8:00 PM' },
-    { day: 'Sunday', hours: '9:00 AM – 6:00 PM' },
+    { day: 'Monday – Saturday', hours: 'Open' },
+    { day: 'Sunday', hours: 'Closed' },
   ],
   opensAt: '7 AM',
   opensDisplay: '7AM',
 
   hero: {
     badge: 'Mtayleb & Awkar',
-    headline: 'BUILT FOR STRENGTH',
-    subheadline:
-      'Lebanon\'s serious training club — elite coaching, premium equipment, and a culture built for fitness and transformation.',
+    headline: 'TRAIN HARDER. GET STRONGER.',
+    subheadline: 'Premium fitness, coaching and performance training in Lebanon.',
     backgroundImage: null,
-    primaryCta: 'Join Now on WhatsApp',
-    secondaryCta: 'Visit a Branch',
+    branchCards: [
+      {
+        name: 'Mtayleb',
+        tagline: 'Train • Classes • Coaching',
+        targetId: 'mtayleb',
+      },
+      {
+        name: 'Awkar',
+        tagline: 'Train • Strength • Performance',
+        targetId: 'awkar',
+      },
+    ],
+  },
+
+  mtaylebBranch: {
+    eyebrow: 'Main Branch',
+    title: 'Mtayleb',
+    intro:
+      'Our flagship club at Cotton Mall — premium equipment, exclusive group classes, personal training, and full membership options.',
+    mapsQuery: 'Ultimate+Fitness+Gym+Mtayleb+Lebanon',
+  },
+
+  awkarBranch: {
+    eyebrow: 'North Beirut',
+    title: 'Awkar',
+    intro:
+      'A focused training floor built for strength, performance, and serious athletes — same UFG standard, north Beirut location.',
+    mapsQuery: 'Ultimate+Fitness+Gym+Awkar+Lebanon',
   },
 
   whyUfg: {
@@ -110,7 +134,7 @@ export const ufgConfig = {
     urgency: 'Limited time · Limited spots',
     description:
       'Start your transformation with elite coaching, premium equipment, and a disciplined training culture.',
-    cta: 'Claim Offer on WhatsApp',
+    cta: 'View Memberships',
   },
 
   sections: {
@@ -129,9 +153,9 @@ export const ufgConfig = {
     },
     classes: {
       eyebrow: 'Group Classes',
-      title: 'Train Together',
+      title: 'Mtayleb Exclusive Classes',
       subtitle:
-        'Structured group sessions designed to improve strength, conditioning, endurance and performance.',
+        'Exclusive group training sessions available at our Mtayleb branch.',
     },
     transformations: { eyebrow: 'Transformation' },
     trainers: {
@@ -233,8 +257,8 @@ export const ufgConfig = {
       },
       {
         id: 'one-month',
-        name: '1 Month',
-        price: '$60',
+        name: '1 Month Membership',
+        price: '$50',
         description: 'Full access for 30 days — ideal for getting started.',
         badge: 'popular',
       },
@@ -269,8 +293,6 @@ export const ufgConfig = {
   },
 
   classes: {
-    cta: 'Ask About Classes',
-    ctaMessage: 'Hi, I want to know more about UFG group classes and the weekly schedule.',
     items: [
       {
         id: 'cardio-crush',
@@ -415,7 +437,7 @@ export const ufgConfig = {
   nav: [
     { label: 'Why UFG', href: '#why-ufg' },
     { label: 'Services', href: '#services' },
-    { label: 'Branches', href: '#branches' },
+    { label: 'Branches', href: '#mtayleb' },
     { label: 'Offer', href: '#offer' },
     { label: 'Contact', href: '#contact' },
   ],
@@ -433,6 +455,10 @@ export const ufgConfig = {
     callCta: 'Call Now',
     whatsappCta: 'WhatsApp',
     visitBranchCta: 'Visit Branch',
+    viewLocationCta: 'View Location',
+    getDirectionsCta: 'Get Directions',
+    exploreBranchCta: 'Explore Branch',
+    exploreMembershipsCta: 'Explore Memberships',
     reviewOnGoogleCta: 'Review on Google',
     seeLocationCta: 'See Location',
     openMapsCta: 'Open in Google Maps',

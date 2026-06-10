@@ -1,7 +1,7 @@
-import { Clock, MapPin, MessageCircle, Phone } from 'lucide-react'
+import { Clock, MapPin, Navigation, Phone } from 'lucide-react'
 import { BRANCHES } from '../data/ufgMedia'
 import { activeConfig } from '../data/activeConfig'
-import { phoneHref, whatsappHref } from '../utils/links'
+import { phoneHref, scrollToId } from '../utils/links'
 import Button from './ui/Button'
 import SocialLinks from './ui/SocialLinks'
 import SectionHeader from './ui/SectionHeader'
@@ -10,7 +10,7 @@ import SectionReveal from './ui/SectionReveal'
 const branchList = [BRANCHES.mtayleb, BRANCHES.awkar]
 
 export default function Location() {
-  const { location, openingHours, opensAt, sections, copy } = activeConfig
+  const { location, openingHours, sections, copy } = activeConfig
   const locationSection = sections.location
 
   return (
@@ -19,7 +19,7 @@ export default function Location() {
         <SectionHeader
           eyebrow={locationSection.eyebrow}
           title={locationSection.title}
-          subtitle="Mtayleb & Awkar — message us on WhatsApp, call, or visit the branch that fits your routine."
+          subtitle="Visit Mtayleb or Awkar — find directions, hours, and branch details below."
           align="left"
         />
 
@@ -30,9 +30,7 @@ export default function Location() {
               className="glass-card overflow-hidden rounded-2xl sm:rounded-[var(--radius-xl)]"
             >
               <div className="relative overflow-hidden p-5 sm:p-6">
-                <div
-                  className="relative flex min-h-[8rem] items-end overflow-hidden rounded-xl bg-[linear-gradient(135deg,#1a1600_0%,#121212_55%,#050505_100%)] p-4 sm:min-h-[9rem] sm:p-5"
-                >
+                <div className="relative flex min-h-[8rem] items-end overflow-hidden rounded-xl bg-[linear-gradient(135deg,#1a1600_0%,#121212_55%,#050505_100%)] p-4 sm:min-h-[9rem] sm:p-5">
                   <div
                     className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,rgba(255,229,0,0.14),transparent_50%)]"
                     aria-hidden="true"
@@ -51,22 +49,19 @@ export default function Location() {
               <div className="space-y-2.5 px-5 pb-5 sm:px-6 sm:pb-6">
                 <Button
                   href={`https://www.google.com/maps/search/?api=1&query=${branch.mapsQuery}`}
-                  variant="secondary"
+                  icon={Navigation}
                   fullWidth
-                  ariaLabel={`Open ${branch.name} in Google Maps`}
+                  ariaLabel={`${copy.getDirectionsCta} — ${branch.name}`}
                 >
-                  {copy.openMapsCta}
+                  {copy.getDirectionsCta}
                 </Button>
                 <Button
-                  href={whatsappHref(
-                    activeConfig.whatsapp,
-                    `Hi, I want to visit the ${branch.name} branch.`,
-                  )}
-                  icon={MessageCircle}
+                  variant="secondary"
+                  onClick={() => scrollToId(branch.id)}
                   fullWidth
-                  ariaLabel={copy.whatsappCta}
+                  ariaLabel={`${copy.exploreBranchCta} — ${branch.name}`}
                 >
-                  {copy.whatsappCta}
+                  {copy.exploreBranchCta}
                 </Button>
               </div>
             </article>
@@ -88,9 +83,6 @@ export default function Location() {
                   <p className="mt-2 text-xs text-white/55 sm:text-sm">
                     Also visit our {BRANCHES.awkar.name} branch — {BRANCHES.awkar.shortAddress}
                   </p>
-                  <p className="mt-1 text-xs text-white/60 sm:text-sm">
-                    {locationSection.opensFromLabel} {opensAt}
-                  </p>
                 </div>
               </div>
             </div>
@@ -109,31 +101,28 @@ export default function Location() {
                     className="flex items-center justify-between gap-3 border-b border-white/5 pb-2.5 text-sm last:border-0 last:pb-0"
                   >
                     <span className="text-white/80">{row.day}</span>
-                    <span className="text-[var(--color-gray)]">{row.hours}</span>
+                    <span
+                      className={
+                        row.hours === 'Closed'
+                          ? 'text-white/45'
+                          : 'font-semibold text-[var(--color-yellow)]'
+                      }
+                    >
+                      {row.hours}
+                    </span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="flex flex-col gap-2.5">
-              <Button
-                href={phoneHref(activeConfig.phone)}
-                icon={Phone}
-                fullWidth
-                ariaLabel="Call gym"
-              >
-                {copy.callCta}
-              </Button>
-              <Button
-                href={whatsappHref(activeConfig.whatsapp, activeConfig.whatsappMessage)}
-                variant="secondary"
-                icon={MessageCircle}
-                fullWidth
-                ariaLabel={copy.whatsappCta}
-              >
-                {copy.whatsappCta}
-              </Button>
-            </div>
+            <Button
+              href={phoneHref(activeConfig.phone)}
+              icon={Phone}
+              fullWidth
+              ariaLabel="Call gym"
+            >
+              {copy.callCta}
+            </Button>
 
             <div className="glass-card flex items-center justify-between gap-4 rounded-2xl p-4 sm:rounded-[var(--radius-xl)] sm:p-5">
               <div>
@@ -156,20 +145,29 @@ export default function Location() {
               <MapPin className="h-8 w-8 text-[var(--color-yellow)]" />
             </div>
             <p className="font-display text-2xl text-white uppercase sm:text-3xl">
-              Join Now
+              {copy.viewLocationCta}
             </p>
             <p className="max-w-sm text-sm leading-relaxed text-[var(--color-gray)]">
-              Ready to train? Contact us on WhatsApp or walk in at Mtayleb or Awkar.
+              Two branches across Lebanon. Get directions or explore each location.
             </p>
-            <Button
-              href={whatsappHref(activeConfig.whatsapp, activeConfig.whatsappMessage)}
-              icon={MessageCircle}
-              fullWidth
-              className="max-w-xs"
-              ariaLabel={copy.headerJoinCta}
-            >
-              {copy.headerJoinCta}
-            </Button>
+            <div className="flex w-full max-w-xs flex-col gap-2.5">
+              <Button
+                href={location.googleMapsUrl}
+                icon={Navigation}
+                fullWidth
+                ariaLabel={copy.getDirectionsCta}
+              >
+                {copy.getDirectionsCta}
+              </Button>
+              <Button
+                variant="secondary"
+                onClick={() => scrollToId('mtayleb')}
+                fullWidth
+                ariaLabel={copy.exploreBranchCta}
+              >
+                {copy.exploreBranchCta}
+              </Button>
+            </div>
           </div>
         </div>
       </div>

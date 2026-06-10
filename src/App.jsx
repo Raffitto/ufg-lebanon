@@ -5,9 +5,9 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import WhyUFG from './components/WhyUFG'
 import Services from './components/Services'
-import Memberships from './components/Memberships'
+import MtaylebBranch from './components/MtaylebBranch'
 import Classes from './components/Classes'
-import Branches from './components/Branches'
+import AwkarBranch from './components/AwkarBranch'
 import OfferSection from './components/OfferSection'
 import Location from './components/Location'
 import FinalCTA from './components/FinalCTA'
@@ -30,9 +30,9 @@ export default function App() {
         <Hero />
         <WhyUFG />
         <Services />
-        <Memberships />
+        <MtaylebBranch />
         <Classes />
-        <Branches />
+        <AwkarBranch />
         <OfferSection />
         <Location />
         <FinalCTA />

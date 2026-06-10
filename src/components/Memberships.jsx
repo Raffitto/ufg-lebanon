@@ -1,4 +1,4 @@
-import { MessageCircle, Sparkles, Star, Trophy, Zap } from 'lucide-react'
+import { MessageCircle, Star, Trophy, Zap } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { activeConfig } from '../data/activeConfig'
 import { useReducedMotion } from '../hooks/useReducedMotion'
@@ -82,41 +82,50 @@ function MembershipCard({ plan, reduced, index }) {
   )
 }
 
-export default function Memberships() {
+export default function Memberships({ embedded = false }) {
   const reduced = useReducedMotion()
   const { memberships, sections } = activeConfig
 
+  const inner = (
+    <div className="mx-auto w-full min-w-0 max-w-7xl">
+      <SectionHeader
+        eyebrow={sections.memberships.eyebrow}
+        title={sections.memberships.title}
+        subtitle={sections.memberships.subtitle}
+        align={embedded ? 'left' : 'center'}
+      />
+
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4">
+        {memberships.plans.map((plan, index) => (
+          <MembershipCard key={plan.id} plan={plan} reduced={reduced} index={index} />
+        ))}
+      </div>
+
+      <div className="mt-8 flex justify-center sm:mt-10">
+        <Button
+          href={whatsappHref(activeConfig.whatsapp, memberships.ctaMessage)}
+          icon={MessageCircle}
+          fullWidth
+          className="max-w-md"
+          ariaLabel={memberships.cta}
+        >
+          {memberships.cta}
+        </Button>
+      </div>
+    </div>
+  )
+
+  if (embedded) {
+    return (
+      <div id="memberships" className="section-padding bg-[var(--color-black)]/95">
+        {inner}
+      </div>
+    )
+  }
+
   return (
     <SectionReveal id="memberships" className="section-padding bg-[var(--color-surface)]/40">
-      <div className="mx-auto w-full min-w-0 max-w-7xl">
-        <SectionHeader
-          eyebrow={sections.memberships.eyebrow}
-          title={sections.memberships.title}
-          subtitle={sections.memberships.subtitle}
-        />
-
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4">
-          {memberships.plans.map((plan, index) => (
-            <MembershipCard key={plan.id} plan={plan} reduced={reduced} index={index} />
-          ))}
-        </div>
-
-        <div className="mt-8 flex flex-col items-center gap-3 sm:mt-10">
-          <p className="flex items-center gap-2 text-xs tracking-wide text-white/50 uppercase">
-            <Sparkles className="h-3.5 w-3.5 text-[var(--color-yellow)]" aria-hidden="true" />
-            Mtayleb & Awkar · Same pricing
-          </p>
-          <Button
-            href={whatsappHref(activeConfig.whatsapp, memberships.ctaMessage)}
-            icon={MessageCircle}
-            fullWidth
-            className="max-w-md"
-            ariaLabel={memberships.cta}
-          >
-            {memberships.cta}
-          </Button>
-        </div>
-      </div>
+      {inner}
     </SectionReveal>
   )
 }
